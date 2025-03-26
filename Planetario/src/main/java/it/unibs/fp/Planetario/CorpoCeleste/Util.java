@@ -1,6 +1,9 @@
 package it.unibs.fp.Planetario.CorpoCeleste;
 
 public class Util {
+    public boolean provaacazzo(){
+        
+    }
 
 
     public boolean addCelestialBody() {
