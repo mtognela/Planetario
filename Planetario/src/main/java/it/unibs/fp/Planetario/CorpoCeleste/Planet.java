@@ -17,4 +17,11 @@ public class Planet extends CorpoCeleste {
         return super.toString() + "Planet{" + "Moons=" + Moons.toString() + '}';
     }
 
+    public StringBuffer moonAround(){
+        StringBuffer listMoon = new StringBuffer();
+        for (Moon m : Moons) {
+            listMoon.append(m.toString()).append("\n");
+        }
+        return listMoon;
+    }
 }
