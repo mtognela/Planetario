@@ -8,16 +8,14 @@ import java.util.ArrayList;
 public class Star extends CorpoCeleste {
     private static Star instance = null;
     private ArrayList<Planet> listPianeti = new ArrayList<>();
-    private String systemName;
 
-    private Star(double mass, String nome, ArrayList<Planet> listaPianeti, String systemName) {
+    private Star(double mass, String nome, ArrayList<Planet> listaPianeti) {
         super(mass, new Coordinate(0, 0), nome);
         this.listPianeti = listaPianeti;
-        this.systemName = systemName;
     }
 
     public static Star createInstance(double mass, String nome, ArrayList<Planet> listaPianeti, String systemName) {
-        if (instance == null) instance = new Star(mass, nome, listaPianeti, systemName);
+        if (instance == null) instance = new Star(mass, nome, listaPianeti);
 
         return instance;
     }
@@ -27,11 +25,11 @@ public class Star extends CorpoCeleste {
     }
 
     public ArrayList<Planet> getListPianeti() {
-        return this.listPianeti;
+        return instance.listPianeti;
     }
 
-    public String getSystemName() {
-        return systemName;
+    public static double getInstanceMass() {
+        return instance.getMass();
     }
 
     @Override
