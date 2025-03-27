@@ -13,9 +13,8 @@ public class Moon extends CorpoCeleste {
         this.path = buildpath();
     }
 
-
     private String buildpath() {
-        return " " + " > " + pianetaRif.getName() + " > " + super.nome;
+        return Star.getInstanceName() + " > " + pianetaRif.getName() + " > " + super.nome;
     }
 
     public String toString() {
@@ -29,5 +28,4 @@ public class Moon extends CorpoCeleste {
     public String getPath() {
         return path;
     }
-
 }
