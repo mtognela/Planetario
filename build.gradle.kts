@@ -13,8 +13,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.kibo.pgar.lib:kibofplib:1.0")
-    implementation("com.googlecode.lanterna:lanterna:3.1.3")
+    implementation("com.kibo.pgar.lib:kibo-pgar-lib:1.0.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.12.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.12.1")
 }

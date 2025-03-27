@@ -1,11 +1,11 @@
 package it.unibs.fp.Planetario.Data;
 
-public class Data {
+public class Bare {
     private double mass;
     private Coordinate coordinate;
     private final int ID;
 
-    public Data(double mass, Coordinate coordinate) {
+    public Bare(double mass, Coordinate coordinate) {
         this.mass = mass;
         this.coordinate = coordinate;
         this.ID = hashCode();
@@ -26,5 +26,10 @@ public class Data {
 
     public int getID() {
         return ID;
+    }
+
+    @Override
+    public String toString() {
+        return mass + " " + coordinate.toString() + " " + ID;
     }
 }
