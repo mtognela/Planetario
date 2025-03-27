@@ -2,7 +2,7 @@ package it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste;
 
 import it.unibs.fp.Planetario.Data.*;
 
-public class CorpoCeleste extends BareCorpoCeleste {
+public class CorpoCeleste extends Bare {
     protected String nome;
 
     public CorpoCeleste(double mass, Coordinate coordinate, String nome) {

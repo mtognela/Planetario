@@ -1,11 +1,11 @@
 package it.unibs.fp.Planetario.Data;
 
-public class BareCorpoCeleste {
+public class Bare {
     private double mass;
     private Coordinate coordinate;
     private final int ID;
 
-    public BareCorpoCeleste(double mass, Coordinate coordinate) {
+    public Bare(double mass, Coordinate coordinate) {
         this.mass = mass;
         this.coordinate = coordinate;
         this.ID = hashCode();
