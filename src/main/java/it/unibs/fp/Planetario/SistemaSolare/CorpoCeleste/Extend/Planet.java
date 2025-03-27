@@ -5,20 +5,24 @@ import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.CorpoCeleste;
 import java.util.ArrayList;
 
 public class Planet extends CorpoCeleste {
-    ArrayList<Moon> Moons;
+    private ArrayList<Moon> moons;
 
-    public Planet(double mass, Coordinate coordinate, String nome, ArrayList<Moon> moons) {
+    public Planet(double mass, Coordinate coordinate, String nome) {
         super(mass, coordinate, nome);
-        this.Moons = moons;
+        this.moons = new ArrayList<>();
+    }
+
+    public ArrayList<Moon> getMoons() {
+        return moons;
     }
 
     public String toString() {
-        return super.toString() + "Planet{" + "Moons=" + Moons.toString() + '}';
+        return super.toString() + "Planet{" + "Moons=" + moons.toString() + '}';
     }
 
     public StringBuffer moonAround(){
         StringBuffer listMoon = new StringBuffer();
-        for (Moon m : Moons) {
+        for (Moon m : moons) {
             listMoon.append(m.toString()).append("\n");
         }
         return listMoon;
