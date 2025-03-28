@@ -28,8 +28,11 @@ public class Planet extends CorpoCeleste {
         return listMoon;
     }
 
-	public void addMoon(Moon moon) {
-		// TODO Auto-generated method stub
-		
+	public void addMoon(double mass, double radius, double theta, String nome) {
+		moons.add(new Moon(mass, new Coordinate(radius , theta), nome ,this));
 	}
+
+    public void removeMoon(Moon moon) {
+        moons.remove(moon);
+    }
 }

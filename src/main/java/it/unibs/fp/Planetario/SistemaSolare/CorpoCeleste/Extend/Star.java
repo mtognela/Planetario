@@ -3,8 +3,6 @@ package it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend;
 import it.unibs.fp.Planetario.Data.Coordinate;
 import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.CorpoCeleste;
 
-import java.util.ArrayList;
-
 public class Star extends CorpoCeleste {
     private static Star instance = null;
 
