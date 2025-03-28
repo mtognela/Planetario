@@ -20,6 +20,10 @@ public class Planet extends CorpoCeleste {
         return super.toString() + "Planet{" + "Moons=" + moons.toString() + '}';
     }
 
+    public Coordinate getPosition() {
+        return super.getCoordinate();
+    }
+
     public StringBuffer moonAround(){
         StringBuffer listMoon = new StringBuffer();
         for (Moon m : moons) {
@@ -28,9 +32,9 @@ public class Planet extends CorpoCeleste {
         return listMoon;
     }
 
-	public void addMoon(double mass, double radius, double theta, String nome) {
-		moons.add(new Moon(mass, new Coordinate(radius , theta), nome ,this));
-	}
+    public void addMoon(double mass, double radius, double theta, String nome, Planet planet) {
+        moons.add(new Moon(mass, new Coordinate(radius , theta), nome, planet));
+    }
 
     public void removeMoon(Moon moon) {
         moons.remove(moon);

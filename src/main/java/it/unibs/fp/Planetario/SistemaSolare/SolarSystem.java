@@ -3,6 +3,7 @@ package it.unibs.fp.Planetario.SistemaSolare;
 import it.unibs.fp.Planetario.Data.Coordinate;
 import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.*;
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class SolarSystem {
     private static SolarSystem instance = null;
@@ -42,7 +43,34 @@ public class SolarSystem {
         planets.remove(planet);
     }
 
+    public static void addMoon(double mass, double radius, double theta, String nome, Planet planet) {
+        planet.addMoon(mass, radius , theta, nome, planet);
+    }
+
+    public void removeMoon(Moon moon,Planet planet) {
+        planet.removeMoon(moon);
+    }
+
+    public static Coordinate calcCDM() {
+        double totalWeight = 0;
+        double totalRadiusMass = 0;
+
+        for (Planet planet : planets) {
+            double mass = planet.getMass();
+            double radius = planet.getPosition().getX(); // Assuming X represents the radius
+
+            totalWeight += mass;
+            totalRadiusMass += radius * mass;
+        }
+
+        // Avoid division by zero
+        double cdmX = (totalWeight != 0) ? totalRadiusMass / totalWeight : 0;
+
+        return new Coordinate(cdmX, 0); // Assuming Y is not needed or is 0
+    }
+
+
     public static void showSolarSystem() {
-        return
+        // TO DO IS NOT THAT DIFFICULT
     }
 }

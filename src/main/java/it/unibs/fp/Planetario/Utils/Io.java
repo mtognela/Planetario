@@ -1,10 +1,8 @@
 package it.unibs.fp.Planetario.Utils;
-
 import com.kibo.pgar.lib.*;
 import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.*;
 import it.unibs.fp.Planetario.SistemaSolare.SolarSystem;
 
-import static it.unibs.fp.Planetario.SistemaSolare.SolarSystem.showSolarSystem;
 
 public class Io {
     public static String GREETER = PrettyStrings.
@@ -29,22 +27,14 @@ public class Io {
 
             SolarSystem.createInstance(Star.getInstance(), systemSystem);
 
-            while (InputData.readYesOrNo(MESSARE_NAME_SYSTEM)) {
-                SolarSystem.addPlanet(
-                        InputData.readDoubleWithMinimum(MESSAGE_MASS_PLANET, 0),
-                        InputData.readDouble(""),
-                        InputData.readDouble(""),
-                        InputData.readStringNotEmpty("", true));
-
-            }
-
+            Menu();
 
         } else {
             System.exit(0);
         }
     }
 
-    public  static void Menu() {
+    private  static void Menu() {
         int scelta;
         do {
             System.out.println("\nMenu: ");
@@ -63,13 +53,13 @@ public class Io {
                     SolarSystem.addPlanet();
                     break;
                 case 2:
-                    // ziozozozoozozoozozoozoz
+                    SolarSystem.removePlanet();
                     break;
                 case 3:
-                    SolarSystem.removePlanet("");
+                    SolarSystem.addMoon();
                     break;
                 case 4:
-                    Planet.removeMoon();
+                    SolarSystem.removeMoon();
                     break;
                 case 5:
                     SolarSystem.showSolarSystem();
