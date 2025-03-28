@@ -27,4 +27,9 @@ public class Planet extends CorpoCeleste {
         }
         return listMoon;
     }
+
+	public void addMoon(Moon moon) {
+		// TODO Auto-generated method stub
+		
+	}
 }

@@ -7,11 +7,15 @@ import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Planet;
 import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Star;
 
 public class Main {
+	
    public static boolean n = false;
-    public static void main(String[] args) {
+   
+    public static void main(String[] args) 
+    	{    	
         System.out.println("Benvenuto nel tuo Planetario");
         boolean x = InputData.readYesOrNo("Sei pronto a cominciare?");
-            if (x){
+            if (x)
+            	{
                 //inserimento sistema solare
             String nomeSistema = InputData.readNonEmptyString("qual è il nome del tuo sistema solare?", n);
             System.out.println("ottimo, per prima cosa procederemo ad inserire la stella del tuo sistema solare");
@@ -36,7 +40,7 @@ public class Main {
                 
                 while(z){
                 //creazione prima luna
-                String moonName = InputData.readStringNotEmpty("inserisci il nome della luna: ", n );
+                String moonName = InputData.readNonEmptyString("inserisci il nome della luna: ", n );
                 double moonMass = InputData.readDoubleWithMinimum("inserisci la massa della luna: ", 0);
                 double moonRadius = InputData.readDoubleWithMinimum("inserisci la distanza della luna dal pianeta: ", 0);
                 double moonAngle = InputData.readDoubleWithMinimum("inserisci l'angolo della luna rispetto al pianeta: ", 0);
@@ -65,7 +69,7 @@ public class Main {
                     
                     switch (scelta) {
                         case 1:
-                            addPlanet();
+                            addPlanet(null);
                             break;
                         case 2:
                             addMoon();
@@ -86,7 +90,7 @@ public class Main {
                     }
                 }
             }
-}
+
 
 
 
@@ -94,18 +98,59 @@ public class Main {
 
 
         
+private static void showSolarSystem() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+
+
+private static void removeMoon() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+
+
+private static void removePlanet() {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+
+
+
+
+
 //aggiungi pianeta
-private static void addPlanet() {
-    String planetName = InputData.readStringNotEmpty("Inserisci il nome del pianeta: ", n);
+public static void addPlanet(Star star) 
+	{
+    String planetName = InputData.readNonEmptyString("Inserisci il nome del pianeta: ", n);
     double planetMass = InputData.readDoubleWithMinimum("Inserisci la massa del pianeta: ", 0);
     double planetRadius = InputData.readDoubleWithMinimum("Inserisci la distanza del pianeta dalla stella: ", 0);
     double planetAngle = InputData.readDoubleWithMinimum("Inserisci l'angolo del pianeta rispetto alla stella: ", 0);
     Planet planet = new Planet(planetMass, new Coordinate(planetRadius * Math.cos(planetAngle), planetRadius * Math.sin(planetAngle)), planetName);
     star.addPlanet(planet);
-    System.out.println("Pianeta aggiunto con successo!");}
+    System.out.println("Pianeta aggiunto con successo!");
+    }
 
 //aggiungi luna
-
+private static void addMoon() {
+	
+	
+}}
 
 
             

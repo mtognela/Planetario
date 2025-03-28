@@ -40,4 +40,9 @@ public class Star extends CorpoCeleste {
                 "listPianeti=" + listPianeti +
                 '}';
     }
+
+	public void addPlanet(Planet planet) {
+		// TODO Auto-generated method stub
+		
+	}
 }
