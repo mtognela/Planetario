@@ -1,10 +1,8 @@
 package it.unibs.fp.Planetario;
 
-import it.kibo.fp.lib.InputData;
+import com.kibo.pgar.lib.InputData;
 import it.unibs.fp.Planetario.Data.Coordinate;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Moon;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Planet;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Star;
+import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.*;
 
 public class Main {
 	
@@ -17,17 +15,17 @@ public class Main {
             if (x)
             	{
                 //inserimento sistema solare
-            String nomeSistema = InputData.readNonEmptyString("qual è il nome del tuo sistema solare?", n);
+            String nomeSistema = InputData.readStringNotEmpty("qual è il nome del tuo sistema solare?", true);
             System.out.println("ottimo, per prima cosa procederemo ad inserire la stella del tuo sistema solare");
                 //inserimento stella
-            String starName = InputData.readNonEmptyString("inserisci il nome della tua stella: ", n);
+            String starName = InputData.readStringNotEmpty("inserisci il nome della tua stella: ", true);
             double starMass = InputData.readDoubleWithMinimum("inserisci la massa della tua stella: ", 0);
             Star star = new Star(starMass, starName, nomeSistema);
             System.out.println("ottimo, ora che abbiamo la stella del tuo sistema solare, procediamo ad inserire i pianeti");
             boolean y = InputData.readYesOrNo("vuoi inserire un pianeta?");
                 //creazione primo pianeta
                 if (y){
-                String planetName = InputData.readNonEmptyString("inserisci il nome del pianeta: ", n );
+                String planetName = InputData.readStringNotEmpty("inserisci il nome del pianeta: ", true);
                 double planetMass = InputData.readDoubleWithMinimum("inserisci la massa del pianeta: ", 0);
                 double planetRadius = InputData.readDoubleWithMinimum("inserisci la distanza del pianeta dalla stella: ", 0);
                 double planetAngle = InputData.readDoubleWithMinimum("inserisci l'angolo del pianeta rispetto alla stella: ", 0);
@@ -40,7 +38,7 @@ public class Main {
                 
                 while(z){
                 //creazione prima luna
-                String moonName = InputData.readNonEmptyString("inserisci il nome della luna: ", n );
+                String moonName = InputData.readStringNotEmpty("inserisci il nome della luna: ", true );
                 double moonMass = InputData.readDoubleWithMinimum("inserisci la massa della luna: ", 0);
                 double moonRadius = InputData.readDoubleWithMinimum("inserisci la distanza della luna dal pianeta: ", 0);
                 double moonAngle = InputData.readDoubleWithMinimum("inserisci l'angolo della luna rispetto al pianeta: ", 0);
@@ -137,7 +135,7 @@ private static void removePlanet() {
 //aggiungi pianeta
 public static void addPlanet(Star star) 
 	{
-    String planetName = InputData.readNonEmptyString("Inserisci il nome del pianeta: ", n);
+    String planetName = InputData.readStringNotEmpty("Inserisci il nome del pianeta: ", true);
     double planetMass = InputData.readDoubleWithMinimum("Inserisci la massa del pianeta: ", 0);
     double planetRadius = InputData.readDoubleWithMinimum("Inserisci la distanza del pianeta dalla stella: ", 0);
     double planetAngle = InputData.readDoubleWithMinimum("Inserisci l'angolo del pianeta rispetto alla stella: ", 0);
