@@ -9,14 +9,14 @@ public class SolarSystem {
     Star star;
     String systemName;
 
-    private SolarSystem(Star star, ArrayList<Planet> planets, String systemName) {
+    private SolarSystem(Star star, String systemName) {
         this.star = star;
-        this.planets = planets;
+        this.planets = null;
         this.systemName = systemName;
     }
 
-    public static SolarSystem createInstance(Star star, ArrayList<Planet> listaPianeti, String systemName)  {
-        if (instance == null) instance = new SolarSystem(star, listaPianeti, systemName);
+    public static SolarSystem createInstance(Star star, String systemName)  {
+        if (instance == null) instance = new SolarSystem(star, systemName);
 
         return instance;
     }
@@ -31,5 +31,9 @@ public class SolarSystem {
 
     public static String getInstanceName() {
         return instance.systemName;
+    }
+
+    public static void addPlanet(Planet planet) {
+        instance.planets.add(planet);
     }
 }
