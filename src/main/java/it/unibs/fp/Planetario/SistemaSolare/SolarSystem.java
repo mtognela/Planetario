@@ -47,26 +47,37 @@ public class SolarSystem {
         planet.addMoon(mass, radius , theta, nome, planet);
     }
 
-    public void removeMoon(Moon moon,Planet planet) {
+    public static void removeMoon(Moon moon, Planet planet) {
         planet.removeMoon(moon);
     }
 
     public static Coordinate calcCDM() {
         double totalWeight = 0;
-        double totalRadiusMass = 0;
+        double totalXMass = 0;
+        double totalYMass = 0;
 
         for (Planet planet : planets) {
-            double mass = planet.getMass();
-            double radius = planet.getPosition().getX(); // Assuming X represents the radius
-
-            totalWeight += mass;
-            totalRadiusMass += radius * mass;
+            totalWeight += planet.getMass();
+            totalXMass += planet.getPosition().getX() * planet.getMass();
+            totalYMass += planet.getPosition().getY() * planet.getMass();
         }
 
-        // Avoid division by zero
-        double cdmX = (totalWeight != 0) ? totalRadiusMass / totalWeight : 0;
+        double cdmX = (totalWeight != 0) ? totalXMass / totalWeight : 0;
+        double cdmY = (totalWeight != 0) ? totalYMass / totalWeight : 0;
 
-        return new Coordinate(cdmX, 0); // Assuming Y is not needed or is 0
+        return new Coordinate(Math.sqrt(Math.pow(cdmX, 2) + Math.pow(cdmY, 2)), Math.atan2(cdmY, cdmX));
+    }
+
+    public static ArrayList<Moon> getMoons() {
+        ArrayList<Planet> planets = getInstancePlanets();
+
+        ArrayList<Moon> moons = new ArrayList<>();
+
+        for (Planet planet : planets) {
+            moons.addAll(planet.getMoons());
+        }
+
+        return moons;
     }
 
 
