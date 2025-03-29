@@ -10,9 +10,8 @@ public class Star extends CorpoCeleste {
         super(mass, new Coordinate(0, 0), nome);
     }
 
-   public static Star createInstance(double mass, String nome) {
+   public static void createInstance(double mass, String nome) {
         if (instance == null) instance = new Star(mass, nome);
-        return instance;
    }
 
    public static Star getInstance() {
