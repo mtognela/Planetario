@@ -2,25 +2,23 @@ package it.unibs.fp.Planetario.SistemaSolare;
 
 import it.unibs.fp.Planetario.Data.Coordinate;
 import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.*;
+
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class SolarSystem {
-    private static SolarSystem instance = null;
+    private static SolarSystem instance;
     private static ArrayList<Planet> planets;
     private static Star star;
     private static String systemName;
 
     private SolarSystem(Star star, String systemName) {
         SolarSystem.star = star;
-        planets = null;
+        SolarSystem.planets = new ArrayList<>();
         SolarSystem.systemName = systemName;
     }
 
-    public static SolarSystem createInstance(Star star, String systemName)  {
+    public static void createInstance(Star star, String systemName)  {
         if (instance == null) instance = new SolarSystem(star, systemName);
-
-        return instance;
     }
 
     public static SolarSystem getInstance() {
@@ -39,6 +37,10 @@ public class SolarSystem {
         planets.add(new Planet(mass, new Coordinate(radius, theta), name));
     }
 
+    public static void addPlanet(Planet planet) {
+        planets.add(new Planet(planet));
+    }
+
     public static void removePlanet(Planet planet) {
         planets.remove(planet);
     }
@@ -47,7 +49,7 @@ public class SolarSystem {
         planet.addMoon(mass, radius , theta, nome, planet);
     }
 
-    public static void removeMoon(Moon moon, Planet planet) {
+    public static void removeMoon(Planet planet, Moon moon) {
         planet.removeMoon(moon);
     }
 
@@ -56,10 +58,19 @@ public class SolarSystem {
         double totalXMass = 0;
         double totalYMass = 0;
 
+        if (planets == null) {
+            return new Coordinate(0.0, 0.0);
+        }
+
         for (Planet planet : planets) {
             totalWeight += planet.getMass();
             totalXMass += planet.getPosition().getX() * planet.getMass();
             totalYMass += planet.getPosition().getY() * planet.getMass();
+            for (Moon moon : planet.getMoons()) {
+                totalWeight += moon.getMass();
+                totalXMass += moon.getCoordinate().getX() * moon.getMass();
+                totalYMass += moon.getCoordinate().getY() * moon.getMass();
+            }
         }
 
         double cdmX = (totalWeight != 0) ? totalXMass / totalWeight : 0;
@@ -80,8 +91,12 @@ public class SolarSystem {
         return moons;
     }
 
-
     public static void showSolarSystem() {
-        // TO DO IS NOT THAT DIFFICULT
+            for(Planet planet : getInstancePlanets()) {
+                System.out.println(planet.toString());
+                for (Moon moon : planet.getMoons()) {
+                    System.out.println(moon.toString());
+                }
+            }
     }
 }
