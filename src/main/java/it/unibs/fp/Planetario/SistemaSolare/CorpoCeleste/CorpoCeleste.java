@@ -5,7 +5,7 @@ import it.unibs.fp.Planetario.Data.*;
 public class CorpoCeleste {
     private final String nome;
     private double mass;
-    private final Coordinate coordinate;
+    private Coordinate coordinate;
     private final int ID;
 
     public CorpoCeleste(double mass, Coordinate coordinate, String nome) {
@@ -33,6 +33,10 @@ public class CorpoCeleste {
 
     public int getID() {
         return ID;
+    }
+
+    public String getIDString() {
+        return Integer.toString(ID);
     }
 
     @Override

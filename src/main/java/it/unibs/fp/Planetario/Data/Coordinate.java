@@ -34,8 +34,9 @@ public class Coordinate {
         return Math.sqrt(Math.pow(X, 2) + Math.pow(Y, 2));
     }
 
-    public double distanceFrom(Coordinate c){
-        return Math.sqrt(Math.pow(this.X, 2) + Math.pow(c.getX(), 2) - 2 * this.X * c.getX() * Math.cos(this.Y - c.getY()));
+    public double distanceFrom(Coordinate coordinate){
+        return Math.sqrt(Math.pow(this.X, 2) + Math.pow(coordinate.getX(), 2)
+                - 2 * this.X * coordinate.getX() * Math.cos(this.Y - coordinate.getY()));
     }
 
     @Override
