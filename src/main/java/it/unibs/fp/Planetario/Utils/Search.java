@@ -6,7 +6,7 @@ import it.unibs.fp.Planetario.SistemaSolare.SolarSystem;
 
 import java.util.ArrayList;
 
-public class Search {
+public abstract class Search {
     public static Planet searchPlanet(Integer id, String name) {
         ArrayList<Planet> planets = SolarSystem.getInstancePlanets();
         if (planets == null) return null;
@@ -21,7 +21,7 @@ public class Search {
         return null;
     }
 
-    public Moon searchMoonByPlanet(Planet planet, Integer id, String name) {
+    public static Moon searchMoonByPlanet(Planet planet, Integer id, String name) {
         ArrayList<Moon> moons = planet.getMoons();
         if (moons == null) return null;
 
@@ -32,7 +32,6 @@ public class Search {
         }
         return null;
     }
-
 
     public static Moon searchMoon(Integer id, String name) {
         ArrayList<Moon> moons = SolarSystem.getMoons();
