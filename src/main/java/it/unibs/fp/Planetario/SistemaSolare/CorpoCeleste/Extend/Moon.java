@@ -8,13 +8,13 @@ public class Moon extends CorpoCeleste {
    private final String path;
 
     public Moon(double mass, Coordinate coordinate, String nome, Planet pianetaRif) {
-        super(mass, coordinate, nome);
+        super(mass, Coordinate.convertToAbsolute(coordinate, pianetaRif), nome);
         this.pianetaRif = pianetaRif;
         this.path = buildpath();
     }
 
     private String buildpath() {
-        return Star.getInstanceName() + " > " + pianetaRif.getName() + " > " + super.nome;
+        return Star.getInstanceName() + " > " + pianetaRif.getName() + " > " + super.getName();
     }
 
     public String toString() {
@@ -23,6 +23,10 @@ public class Moon extends CorpoCeleste {
 
     public Planet getPianetaRif() {
         return pianetaRif;
+    }
+
+    public Coordinate getCoordinate() {
+        return super.getCoordinate();
     }
 
     public String getPath() {
