@@ -12,6 +12,11 @@ public class Planet extends CorpoCeleste {
         this.moons = new ArrayList<>();
     }
 
+    public Planet(Planet planet) {
+        super(planet.getMass(), planet.getCoordinate(), planet.getName());
+        this.moons = planet.getMoons();
+    }
+
     public ArrayList<Moon> getMoons() {
         return moons;
     }
@@ -34,6 +39,10 @@ public class Planet extends CorpoCeleste {
 
     public void addMoon(double mass, double radius, double theta, String nome, Planet planet) {
         moons.add(new Moon(mass, new Coordinate(radius , theta), nome, planet));
+    }
+
+    public void addMoon(Moon moon) {
+        moons.add(moon);
     }
 
     public void removeMoon(Moon moon) {
