@@ -14,14 +14,13 @@ repositories {
 
 dependencies {
     implementation("com.kibo.pgar.lib:kibo-pgar-lib:1.0.0")
-    implementation("com.hrakaroo:glob:0.9.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.12.1")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher:1.12.1")
 }
 
-group = "it.unibs.fp.Planetario"
+group = "it.unibs.fp.Planetarium"
 version = "1.0.0"
-description = "it-unibs-Planetario"
+description = "it-unibs-Planetarium"
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21

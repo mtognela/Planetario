@@ -1,2 +1,2 @@
-rootProject.name = "Planetario"
+rootProject.name = "Planetarium"
 
