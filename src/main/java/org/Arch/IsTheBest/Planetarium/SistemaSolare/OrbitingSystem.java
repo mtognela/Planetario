@@ -1,27 +1,26 @@
-package it.unibs.fp.Planetario.SistemaSolare;
+package org.Arch.IsTheBest.Planetarium.SistemaSolare;
 
-import it.unibs.fp.Planetario.Data.Coordinate;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.*;
-
+import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.*;
 import java.util.ArrayList;
 
-public class SolarSystem {
-    private static SolarSystem instance;
+public class OrbitingSystem {
+    private static OrbitingSystem instance;
     private static ArrayList<Planet> planets;
     private static Star star;
     private static String systemName;
 
-    private SolarSystem(Star star, String systemName) {
-        SolarSystem.star = star;
-        SolarSystem.planets = new ArrayList<>();
-        SolarSystem.systemName = systemName;
+    private OrbitingSystem(Star star, String systemName) {
+        OrbitingSystem.star = star;
+        OrbitingSystem.planets = new ArrayList<>();
+        OrbitingSystem.systemName = systemName;
     }
 
     public static void createInstance(Star star, String systemName)  {
-        if (instance == null) instance = new SolarSystem(star, systemName);
+        if (instance == null) instance = new OrbitingSystem(star, systemName);
     }
 
-    public static SolarSystem getInstance() {
+    public static OrbitingSystem getInstance() {
         return instance;
     }
 
@@ -49,8 +48,8 @@ public class SolarSystem {
         planet.addMoon(mass, radius , theta, nome, planet);
     }
 
-    public static void removeMoon(Planet planet, Moon moon) {
-        planet.removeMoon(moon);
+    public static void removeMoon(Moon moon) {
+        moon.getPianetaRif().removeMoon(moon);
     }
 
     public static Coordinate calcCDM() {
@@ -93,9 +92,9 @@ public class SolarSystem {
 
     public static void showSolarSystem() {
             for(Planet planet : getInstancePlanets()) {
-                System.out.println(planet.toString());
+                java.lang.System.out.println(planet.toString());
                 for (Moon moon : planet.getMoons()) {
-                    System.out.println(moon.toString());
+                    java.lang.System.out.println(moon.toString());
                 }
             }
     }

@@ -1,7 +1,7 @@
-package it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend;
+package org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend;
 
-import it.unibs.fp.Planetario.Data.Coordinate;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.CorpoCeleste;
+import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.CorpoCeleste;
 import java.util.ArrayList;
 
 public class Planet extends CorpoCeleste {

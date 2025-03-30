@@ -1,6 +1,8 @@
-package it.unibs.fp.Planetario.Data;
+package org.Arch.IsTheBest.Planetarium.Data;
 
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Planet;
+import com.kibo.pgar.lib.AnsiColors;
+import com.kibo.pgar.lib.PrettyStrings;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
 
 public class Coordinate {
     private final double X;
@@ -22,7 +24,6 @@ public class Coordinate {
     public double getY() {
         return Y;
     }
-
 
     public double getRADIUS() {
         return RADIUS;
@@ -59,11 +60,6 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return "Coordinate{" +
-                "X=" + X +
-                ", Y=" + Y +
-                ", RADIUS=" + RADIUS +
-                ", THETA=" + THETA +
-                '}';
+        return PrettyStrings.prettify(String.format("Coordinate { x = %f, y = %f}",  X, Y), AnsiColors.CYAN, null,  null);
     }
 }

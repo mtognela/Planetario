@@ -1,9 +1,11 @@
-package it.unibs.fp.Planetario.Utils;
+package org.Arch.IsTheBest.Planetarium.Utils;
 
 import com.kibo.pgar.lib.*;
-import it.unibs.fp.Planetario.Data.Coordinate;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.*;
-import it.unibs.fp.Planetario.SistemaSolare.SolarSystem;
+import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Moon;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Star;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.OrbitingSystem;
 
 public abstract class Io {
     public static final String GREETER = PrettyStrings.prettify(
@@ -17,18 +19,18 @@ public abstract class Io {
 
     public static void setUpSystem() {
         if (InputData.readYesOrNo(GREETER)) {
-            String systemName = InputData.readStringNotEmpty(MESSAGE_NAME_SYSTEM, true);
+            String systemName = InputData.readStringNotEmpty(MESSAGE_NAME_SYSTEM, false);
             Star.createInstance(
                     InputData.readDoubleWithMinimum(MESSAGE_MASS_STAR, 0),
-                    InputData.readStringNotEmpty(MESSAGE_NAME_STAR, true)
+                    InputData.readStringNotEmpty(MESSAGE_NAME_STAR, false)
             );
 
-            SolarSystem.createInstance(Star.getInstance(), systemName);
+            OrbitingSystem.createInstance(Star.getInstance(), systemName);
 
             showMenu();
         } else {
-            System.out.println("Goodbye!");
-            System.exit(0);
+            java.lang.System.out.println("Goodbye!");
+            java.lang.System.exit(0);
         }
     }
 
@@ -63,7 +65,7 @@ public abstract class Io {
                     removeMoon();
                     break;
                 case 5:
-                    SolarSystem.showSolarSystem();
+                    OrbitingSystem.showSolarSystem();
                     break;
                 case 6:
                     cmd();
@@ -73,33 +75,33 @@ public abstract class Io {
     }
 
     private static void addPlanet() {
-        System.out.println("Aggiunta di un pianeta...");
-        String planetName = InputData.readStringNotEmpty("Nome del pianeta: ", true);
+        java.lang.System.out.println("Aggiunta di un pianeta...");
+        String planetName = InputData.readStringNotEmpty("Nome del pianeta: ", false);
         double mass = InputData.readDoubleWithMinimum("Massa del pianeta: ", 0);
 
         double radius = InputData.readDoubleWithMinimum("Distanza dal sole (raggio): ", 0);
         double theta = InputData.readDouble("Angolo theta (in gradi): ");
 
-        SolarSystem.addPlanet(mass, radius, theta, planetName);
+        OrbitingSystem.addPlanet(mass, radius, theta, planetName);
 
-        System.out.println("Pianeta " + planetName + " aggiunto con successo!");
+        java.lang.System.out.println("Pianeta " + planetName + " aggiunto con successo!");
     }
 
     private static void addMoon() {
-        System.out.println("Aggiunta di una luna...");
+        java.lang.System.out.println("Aggiunta di una luna...");
 
         // Trova il pianeta di riferimento
         Planet planet = Search.searchPlanet(
                 InputData.readInteger("ID pianeta: "),
-                InputData.readStringNotEmpty("Nome pianeta: ", true)
+                InputData.readStringNotEmpty("Nome pianeta: ", false)
         );
 
         if (planet == null) {
-            System.out.println("Errore: Pianeta non trovato.");
+            java.lang.System.out.println("Errore: Pianeta non trovato.");
             return;
         }
 
-        String moonName = InputData.readStringNotEmpty("Nome della luna: ", true);
+        String moonName = InputData.readStringNotEmpty("Nome della luna: ", false);
         double moonMass = InputData.readDoubleWithMinimum("Massa della luna: ", 0);
 
         // Input per coordinate polari
@@ -112,59 +114,54 @@ public abstract class Io {
         Moon moon = new Moon(moonMass, coordinate, moonName, planet);
         planet.addMoon(moon);
 
-        System.out.println("Luna " + moonName + " aggiunta con successo a " + planet.getName() + "!");
+        java.lang.System.out.println("Luna " + moonName + " aggiunta con successo a " + planet.getName() + "!");
     }
 
     private static void removePlanet() {
-        System.out.println("Rimozione di un pianeta...");
+        java.lang.System.out.println("Rimozione di un pianeta...");
         Planet planet = Search.searchPlanet(
                 InputData.readInteger("ID pianeta: "),
-                InputData.readStringNotEmpty("Nome pianeta: ", true)
+                InputData.readStringNotEmpty("Nome pianeta: ", false)
         );
 
         if (planet == null) {
-            System.out.println("Errore: Pianeta non trovato.");
+            java.lang.System.out.println("Errore: Pianeta non trovato.");
             return;
         }
 
-        SolarSystem.removePlanet(planet);
-        System.out.println("Pianeta rimosso con successo.");
+        OrbitingSystem.removePlanet(planet);
+        java.lang.System.out.println("Pianeta rimosso con successo.");
     }
 
     private static void removeMoon() {
-        System.out.println("Rimozione di una luna...");
+        java.lang.System.out.println("Rimozione di una luna...");
         Planet planet = Search.searchPlanet(
                 InputData.readInteger("ID pianeta: "),
-                InputData.readStringNotEmpty("Nome pianeta: ", true)
+                InputData.readStringNotEmpty("Nome pianeta: ", false)
         );
 
         if (planet == null) {
-            System.out.println("Errore: Pianeta non trovato.");
+            java.lang.System.out.println("Errore: Pianeta non trovato.");
             return;
         }
 
         Moon moon = Search.searchMoonByPlanet(
                 planet,
                 InputData.readInteger("ID luna: "),
-                InputData.readStringNotEmpty("Nome luna: ", true)
+                InputData.readStringNotEmpty("Nome luna: ", false)
         );
 
         if (moon == null) {
-            System.out.println("Errore: Luna non trovata.");
+            java.lang.System.out.println("Errore: Luna non trovata.");
             return;
         }
 
-        SolarSystem.removeMoon(planet, moon);
-        System.out.println("Luna rimossa con successo.");
+        OrbitingSystem.removeMoon(moon);
+        java.lang.System.out.println("Luna rimossa con successo.");
     }
 
     private static void cmd(){
-        Coordinate cmd = SolarSystem.calcCDM();
-        if (cmd == null) {
-            System.out.println("Ahhhh volevi");
-        }
-        else {
-            System.out.println("cmd " + cmd.toString());
-        }
+        Coordinate cmd = OrbitingSystem.calcCDM();
+        java.lang.System.out.println("cmd " + cmd.toString());
     }
 }

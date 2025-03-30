@@ -1,10 +1,10 @@
-package org.Arch.IsTheBest.Planetario.Utils;
+package org.Arch.IsTheBest.Planetarium.Utils;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;
-import org.Arch.IsTheBest.Planetario.SistemaSolare.CorpoCeleste.Extend.Moon;
-import org.Arch.IsTheBest.Planetario.SistemaSolare.CorpoCeleste.Extend.Planet;
-import org.Arch.IsTheBest.Planetario.SistemaSolare.CorpoCeleste.Extend.Star;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Moon;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Star;
 
 public abstract class Route {
         public static double FromTo(Planet p1, Planet p2) {

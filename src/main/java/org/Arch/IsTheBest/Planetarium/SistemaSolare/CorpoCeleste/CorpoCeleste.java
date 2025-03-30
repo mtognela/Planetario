@@ -1,9 +1,11 @@
-package it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste;
+package org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste;
 
-import it.unibs.fp.Planetario.Data.*;
+import com.kibo.pgar.lib.AnsiColors;
+import com.kibo.pgar.lib.PrettyStrings;
+import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 
 public  abstract  class CorpoCeleste {
-    private final String nome;
+    private String nome;
     private double mass;
     private Coordinate coordinate;
     private final int ID;
@@ -26,7 +28,6 @@ public  abstract  class CorpoCeleste {
         this.mass += update;
     }
 
-
     public Coordinate getCoordinate() {
         return coordinate;
     }
@@ -41,6 +42,6 @@ public  abstract  class CorpoCeleste {
 
     @Override
     public String toString() {
-        return mass + " " + coordinate.toString() + " " + ID;
+        return PrettyStrings.prettify(String.format("%f %s %d", mass, coordinate.toString(), this.ID), AnsiColors.CYAN, null,  null);
     }
 }

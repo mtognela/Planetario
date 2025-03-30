@@ -1,14 +1,14 @@
-package it.unibs.fp.Planetario.Utils;
+package org.Arch.IsTheBest.Planetarium.Utils;
 
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Moon;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend.Planet;
-import it.unibs.fp.Planetario.SistemaSolare.SolarSystem;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Moon;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.OrbitingSystem;
 
 import java.util.ArrayList;
 
 public abstract class Search {
     public static Planet searchPlanet(Integer id, String name) {
-        ArrayList<Planet> planets = SolarSystem.getInstancePlanets();
+        ArrayList<Planet> planets = OrbitingSystem.getInstancePlanets();
         if (planets == null) return null;
 
         for(Planet planet : planets) {
@@ -34,7 +34,7 @@ public abstract class Search {
     }
 
     public static Moon searchMoon(Integer id, String name) {
-        ArrayList<Moon> moons = SolarSystem.getMoons();
+        ArrayList<Moon> moons = OrbitingSystem.getMoons();
         if (moons == null) return null;
 
         for(Moon moon : moons) {

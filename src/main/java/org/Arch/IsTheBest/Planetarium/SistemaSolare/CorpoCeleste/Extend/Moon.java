@@ -1,7 +1,9 @@
-package it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.Extend;
+package org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend;
 
-import it.unibs.fp.Planetario.Data.Coordinate;
-import it.unibs.fp.Planetario.SistemaSolare.CorpoCeleste.CorpoCeleste;
+import com.kibo.pgar.lib.AnsiColors;
+import com.kibo.pgar.lib.PrettyStrings;
+import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
+import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.CorpoCeleste;
 
 public class Moon extends CorpoCeleste {
    private final Planet pianetaRif;
@@ -18,7 +20,7 @@ public class Moon extends CorpoCeleste {
     }
 
     public String toString() {
-        return super.toString() + "Moon{" + "pianetaRif=" + pianetaRif + '}';
+        return PrettyStrings.prettify(String.format("%s %s", super.toString(), pianetaRif.toString()), AnsiColors.CYAN, null,  null);
     }
 
     public Planet getPianetaRif() {
