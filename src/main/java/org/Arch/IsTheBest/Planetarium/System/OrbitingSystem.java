@@ -1,7 +1,9 @@
-package org.Arch.IsTheBest.Planetarium.SistemaSolare;
+package org.Arch.IsTheBest.Planetarium.System;
 
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.*;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.*;
+import org.Arch.IsTheBest.Planetarium.Utils.Collision.Collision;
+
 import java.util.ArrayList;
 
 public class OrbitingSystem {
@@ -34,10 +36,12 @@ public class OrbitingSystem {
 
     public static void addPlanet(double mass, double radius, double theta, String name) {
         planets.add(new Planet(mass, new Coordinate(radius, theta), name));
+        Collision.checkCollisions();
     }
 
     public static void addPlanet(Planet planet) {
         planets.add(new Planet(planet));
+        Collision.checkCollisions();
     }
 
     public static void removePlanet(Planet planet) {
@@ -46,6 +50,7 @@ public class OrbitingSystem {
 
     public static void addMoon(double mass, double radius, double theta, String nome, Planet planet) {
         planet.addMoon(mass, radius , theta, nome, planet);
+        Collision.checkCollisions();
     }
 
     public static void removeMoon(Moon moon) {
@@ -90,12 +95,9 @@ public class OrbitingSystem {
         return moons;
     }
 
-    public static void showSolarSystem() {
-            for(Planet planet : getInstancePlanets()) {
-                java.lang.System.out.println(planet.toString());
-                for (Moon moon : planet.getMoons()) {
-                    java.lang.System.out.println(moon.toString());
-                }
-            }
+    public static void showSolarSystem()  {
+        for(Planet planet : getInstancePlanets()) {
+            java.lang.System.out.println(planet.toString());
+        }
     }
 }

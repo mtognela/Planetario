@@ -1,8 +1,8 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Io;
 
 import com.kibo.pgar.lib.*;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Star;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.OrbitingSystem;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Star;
+import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 
 public abstract class Io {
     public static void setUpSystem() {

@@ -2,15 +2,15 @@ package org.Arch.IsTheBest.Planetarium.Utils.Io;
 
 import com.kibo.pgar.lib.InputData;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.OrbitingSystem;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 import org.Arch.IsTheBest.Planetarium.Utils.Extras.Search;
 
 public class JustKidding {
 
     protected static void addPlanet() {
-        java.lang.System.out.println(PlazUrban.AGGIUNTA_DI_UN_PIANETA);
+        System.out.println(PlazUrban.AGGIUNTA_DI_UN_PIANETA);
         String planetName = InputData.readStringNotEmpty(PlazUrban.NOME_DEL_PIANETA, false);
         double mass = InputData.readDoubleWithMinimum(PlazUrban.MASSA_DEL_PIANETA, 0);
 
@@ -48,30 +48,30 @@ public class JustKidding {
     }
 
     protected static void removePlanet() {
-        java.lang.System.out.println(PlazUrban.RIMOZIONE_DI_UN_PIANETA);
+        System.out.println(PlazUrban.RIMOZIONE_DI_UN_PIANETA);
         Planet planet = Search.searchPlanet(
                 InputData.readInteger(PlazUrban.ID_PIANETA),
                 InputData.readStringNotEmpty(PlazUrban.NOME_DEL_PIANETA, false)
         );
 
         if (planet == null) {
-            java.lang.System.out.println(PlazUrban.ERRORE_PIANETA_NON_TROVATO);
+            System.out.println(PlazUrban.ERRORE_PIANETA_NON_TROVATO);
             return;
         }
 
         OrbitingSystem.removePlanet(planet);
-        java.lang.System.out.println(PlazUrban.PIANETA_RIMOSSO_CON_SUCCESSO);
+        System.out.println(PlazUrban.PIANETA_RIMOSSO_CON_SUCCESSO);
     }
 
     protected static void removeMoon() {
-        java.lang.System.out.println(PlazUrban.RIMOZIONE_DI_UNA_LUNA);
+        System.out.println(PlazUrban.RIMOZIONE_DI_UNA_LUNA);
         Planet planet = Search.searchPlanet(
                 InputData.readInteger(PlazUrban.ID_PIANETA),
                 InputData.readStringNotEmpty(PlazUrban.NOME_PIANETA, false)
         );
 
         if (planet == null) {
-            java.lang.System.out.println(PlazUrban.ERRORE_PIANETA_NON_TROVATO);
+            System.out.println(PlazUrban.ERRORE_PIANETA_NON_TROVATO);
             return;
         }
 
@@ -82,16 +82,16 @@ public class JustKidding {
         );
 
         if (moon == null) {
-            java.lang.System.out.println(PlazUrban.ERRORE_PIANETA_NON_TROVATO);
+            System.out.println(PlazUrban.ERRORE_PIANETA_NON_TROVATO);
             return;
         }
 
         OrbitingSystem.removeMoon(moon);
-        java.lang.System.out.println(PlazUrban.LUNA_RIMOSSA_CON_SUCCESSO);
+        System.out.println(PlazUrban.LUNA_RIMOSSA_CON_SUCCESSO);
     }
 
     protected static void cmd(){
         Coordinate cmd = OrbitingSystem.calcCDM();
-        java.lang.System.out.printf(PlazUrban.CMD, cmd.toString());
+        System.out.printf(PlazUrban.CMD, cmd.toString());
     }
 }

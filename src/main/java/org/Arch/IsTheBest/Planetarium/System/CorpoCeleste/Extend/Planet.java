@@ -1,7 +1,9 @@
-package org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend;
+package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend;
 
+import com.kibo.pgar.lib.AnsiColors;
+import com.kibo.pgar.lib.PrettyStrings;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.CorpoCeleste;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
 import java.util.ArrayList;
 
 public class Planet extends CorpoCeleste {
@@ -22,19 +24,12 @@ public class Planet extends CorpoCeleste {
     }
 
     public String toString() {
-        return super.toString() + "Planet{" + "Moons=" + moons.toString() + '}';
+        return PrettyStrings.
+                prettify(String.format("%s { %s }",super.toString(), moons.toString()), AnsiColors.CYAN, null, null);
     }
 
     public Coordinate getPosition() {
         return super.getCoordinate();
-    }
-
-    public StringBuffer moonAround(){
-        StringBuffer listMoon = new StringBuffer();
-        for (Moon m : moons) {
-            listMoon.append(m.toString()).append("\n");
-        }
-        return listMoon;
     }
 
     public void addMoon(double mass, double radius, double theta, String nome, Planet planet) {

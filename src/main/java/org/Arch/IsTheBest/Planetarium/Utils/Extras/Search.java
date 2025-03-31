@@ -1,8 +1,8 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Extras;
 
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.OrbitingSystem;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 
 import java.util.ArrayList;
 

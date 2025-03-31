@@ -1,7 +1,7 @@
-package org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend;
+package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend;
 
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.CorpoCeleste;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
 
 public class Star extends CorpoCeleste {
     private static Star instance = null;
