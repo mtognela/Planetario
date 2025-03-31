@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste;
+package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;
@@ -11,8 +11,16 @@ public  abstract  class CorpoCeleste {
     private final int ID;
 
     public CorpoCeleste(double mass, Coordinate coordinate, String nome) {
+        this.mass = mass;
         this.nome = nome;
         this.coordinate = coordinate;
+        this.ID = hashCode();
+    }
+
+    public CorpoCeleste(double mass, double radius, double theta, String nome ) {
+        this.mass = mass;
+        this.coordinate = new Coordinate(radius,theta);
+        this.nome = nome;
         this.ID = hashCode();
     }
 
@@ -32,6 +40,22 @@ public  abstract  class CorpoCeleste {
         return coordinate;
     }
 
+    public double getX(){
+        return coordinate.getX();
+    }
+
+    public double getY(){
+        return coordinate.getY();
+    }
+
+    public double getRADIUS(){
+        return coordinate.getRADIUS();
+    }
+
+    public double getTheta(){
+        return coordinate.getTHETA();
+    }
+
     public int getID() {
         return ID;
     }
@@ -42,6 +66,7 @@ public  abstract  class CorpoCeleste {
 
     @Override
     public String toString() {
-        return PrettyStrings.prettify(String.format("%f %s %d", mass, coordinate.toString(), this.ID), AnsiColors.CYAN, null,  null);
+        return PrettyStrings.
+                prettify(String.format("Mass = %f, %s, Nome %s, ID = %d", mass, coordinate.toString(), nome, this.ID), AnsiColors.CYAN, null,  null);
     }
 }
