@@ -40,17 +40,9 @@ public abstract class ArtTacTac {
             prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String MENU_ROUTE_2 = PrettyStrings.
             prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String MENU_ROUTE_3 = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String MENU_ROUTE_4 = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String MENU_ROUTE_5 = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String MENU_ROUTE_6 = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     ;
     // -----------------------------------------------------------------------------------------------------------
-    public static final String[] MENU_ROUTE_OPTIONS = {MENU_ROUTE_1, MENU_ROUTE_2, MENU_ROUTE_3, MENU_ROUTE_4, MENU_ROUTE_5, MENU_ROUTE_6};
+    public static final String[] MENU_ROUTE_OPTIONS = {MENU_ROUTE_1, MENU_ROUTE_2};
     // -----------------------------------------------------------------------------------------------------------
     public static final String ADD_PLANET_GREETER = PrettyStrings.
             prettify("Ready to add a Planet...", AnsiColors.CYAN, AnsiWeights.BOLD, null);
