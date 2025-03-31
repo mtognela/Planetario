@@ -41,7 +41,35 @@ public abstract class Collision {
     }
 
     public static void checkCollisions() {
-        // TO DO STEFANO FACCIA DI CULO
+        ArrayList<Planet> planets = OrbitingSystem.getInstancePlanets();
+        ArrayList<Moon> moons = OrbitingSystem.getMoons();
+
+        for (int i = 0; i < planets.size(); i++) {
+            for (int j=i+1; j<planets.size(); j++) {
+                if (detectCollision(planets.get(i), planets.get(j))) {
+                    OrbitingSystem.removePlanet(planets.get(i));
+                    OrbitingSystem.removePlanet(planets.get(j));
+                }
+            }
+        }
+
+        for (int k = 0; k < moons.size(); k++) {
+            for (int l = k+1; l < planets.size(); l++) {
+                if (detectCollision(moons.get(k), moons.get(l))) {
+                    OrbitingSystem.removeMoon(moons.get(k));
+                    OrbitingSystem.removeMoon(moons.get(l));
+                }
+            }
+        }
+
+        for (Planet planet : planets) {
+            for (Moon moon : moons) {
+                if (detectCollision(planet, moon)) {
+                    OrbitingSystem.removePlanet(planet);
+                    OrbitingSystem.removeMoon(moon);
+                }
+            }
+        }
     }
 
     private static boolean detectCollision(Planet p1, Planet p2) {
