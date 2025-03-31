@@ -32,27 +32,4 @@ public class Moon extends CorpoCeleste {
         return pianetaRif;
     }
 
-    public double getMass() {
-        return super.getMass();
-    }
-
-    public double getX() {
-        return super.getX();
-    }
-
-    public double getY() {
-        return super.getY();
-    }
-
-    public double getRADIUS() {
-        return super.getRADIUS();
-    }
-
-    public double getTHETA() {
-        return super.getTheta();
-    }
-
-    public Coordinate getCoordinate() {
-        return super.getCoordinate();
-    }
 }

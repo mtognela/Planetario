@@ -95,9 +95,11 @@ public class OrbitingSystem {
         return moons;
     }
 
-    public static void showSolarSystem()  {
-        for(Planet planet : getInstancePlanets()) {
-            java.lang.System.out.println(planet.toString());
+    public static StringBuffer showSystem() {
+        StringBuffer planetString = new StringBuffer();
+        for (Planet planet : getInstancePlanets()) {
+            planetString.append(planet.toString()).append("\n");
         }
+        return planetString;
     }
 }

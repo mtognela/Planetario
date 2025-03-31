@@ -5,6 +5,7 @@ import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public abstract class Search {
     public static Planet searchPlanet(Integer id, String name) {

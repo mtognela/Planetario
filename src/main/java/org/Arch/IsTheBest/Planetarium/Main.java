@@ -1,9 +1,9 @@
 package org.Arch.IsTheBest.Planetarium;
 
-import org.Arch.IsTheBest.Planetarium.Utils.Io.Io;
+import org.Arch.IsTheBest.Planetarium.Utils.Io.IoMain;
 
 public abstract class Main {
     public static void main(String[] args) {
-        Io.setUpSystem();
+        IoMain.setUpSystem();
     }
 }

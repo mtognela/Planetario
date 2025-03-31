@@ -1,6 +1,7 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Io;
 
 import com.kibo.pgar.lib.*;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 
 import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
 
@@ -15,25 +16,10 @@ public abstract class IoRoute {
 
             switch (choice) {
                 case 1:
-
+                    BornOut.fromTo();
                     break;
                 case 2:
-                    BornOut.
-                    break;
-                case 3:
-                    JustKidding.removePlanet();
-                    break;
-                case 4:
-                    JustKidding.removeMoon();
-                    break;
-                case 5:
-                    JustKidding.showSystem();
-                    break;
-                case 6:
-                    JustKidding.cmd();
-                    break;
-                case 7:
-                    JustKidding.route();
+                    BornOut.BuildPathFromTo();
                     break;
             }
         } while (choice != 0);

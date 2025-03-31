@@ -24,8 +24,12 @@ public class Planet extends CorpoCeleste {
     }
 
     public String toString() {
+        StringBuffer moonsString = new StringBuffer();
+        for (Moon moon : moons) {
+            moonsString.append(moon.toString()).append("\n");
+        }
         return PrettyStrings.
-                prettify(String.format("%s { %s }",super.toString(), moons.toString()), AnsiColors.CYAN, null, null);
+                prettify(String.format("%s { %s }",super.toString(), moonsString), AnsiColors.CYAN, null, null);
     }
 
     public Coordinate getPosition() {
