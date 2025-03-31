@@ -1,10 +1,9 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Collision;
 
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.OrbitingSystem;
-
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 import java.util.ArrayList;
 
 public abstract class Collision {
@@ -41,35 +40,8 @@ public abstract class Collision {
         return false;
     }
 
-    private static void checkCollisions() {
-        ArrayList<Planet> planets = OrbitingSystem.getInstancePlanets();
-
-        if (planets == null || planets.isEmpty()) return;
-
-        for (int i = 0; i < planets.size(); i++) {
-            for (int j = i + 1; j < planets.size(); j++) {
-                if (detectCollision(planets.get(i), planets.get(j))) {
-                    OrbitingSystem.removePlanet(planets.get(i));
-                    OrbitingSystem.removePlanet(planets.get(j));
-                }
-            }
-        }
-
-        for (Planet planet : planets) {
-            ArrayList<Moon> moons = planet.getMoons();
-            for (int i = 0; i < moons.size(); i++) {
-                for (int j = i + 1; j < moons.size(); j++) {
-                    if (detectCollision(moons.get(i), moons.get(j))) {
-                        OrbitingSystem.removeMoon(moons.get(i));
-                        OrbitingSystem.removeMoon(moons.get(j));
-                    }
-                }
-                if (detectCollision(planet, moons.get(i))) {
-                    OrbitingSystem.removeMoon(moons.get(i));
-                    OrbitingSystem.removePlanet(planet);
-                }
-            }
-        }
+    public static void checkCollisions() {
+        // TO DO STEFANO FACCIA DI CULO
     }
 
     private static boolean detectCollision(Planet p1, Planet p2) {
