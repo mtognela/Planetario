@@ -3,27 +3,29 @@ package org.Arch.IsTheBest.Planetarium.Utils.Io;
 import com.kibo.pgar.lib.*;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Star;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
+import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
 
-public abstract class Io {
+public abstract class IoMain {
     public static void setUpSystem() {
-        if (InputData.readYesOrNo(PlazUrban.GREETER)) {
-            String systemName = InputData.readStringNotEmpty(PlazUrban.MESSAGE_NAME_SYSTEM, false);
-            Star.createInstance(
-                    InputData.readDoubleWithMinimum(PlazUrban.MESSAGE_MASS_STAR, 0),
-                    InputData.readStringNotEmpty(PlazUrban.MESSAGE_NAME_STAR, false)
-            );
+        if (InputData.readYesOrNo(GREETER)) {
+            String systemName = InputData.readStringNotEmpty(MESSAGE_NAME_SYSTEM, true);
+
+            double mass  = InputData.readDoubleWithMinimum(MESSAGE_MASS_STAR, 0);
+            String name =  InputData.readStringNotEmpty(MESSAGE_NAME_STAR, true);
+
+            Star.createInstance(mass, name);
 
             OrbitingSystem.createInstance(Star.getInstance(), systemName);
 
             showMenu();
         } else {
-            System.out.println(PlazUrban.GOODBYE);
+            System.out.println(GOODBYE);
             System.exit(0);
         }
     }
 
     private static void showMenu() {
-        Menu menu = new Menu(PlazUrban.MENU_TITLE, PlazUrban.MENU_OPTIONS, true, true, true);
+        Menu menu = new Menu(MENU_MAIN_TITLE, MENU_MAIN_OPTIONS, true, true, true);
 
         int choice;
 
@@ -44,12 +46,16 @@ public abstract class Io {
                     JustKidding.removeMoon();
                     break;
                 case 5:
-                    OrbitingSystem.showSolarSystem();
+                    JustKidding.showSystem();
                     break;
                 case 6:
                     JustKidding.cmd();
                     break;
+                case 7:
+                    IoRoute.showMenu();
+                    break;
             }
         } while (choice != 0);
+        System.out.println(GOODBYE);
     }
 }
