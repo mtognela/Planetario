@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils;
+package org.Arch.IsTheBest.Planetarium.Utils.Extras;
 
 import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
