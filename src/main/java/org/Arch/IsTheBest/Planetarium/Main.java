@@ -1,6 +1,6 @@
 package org.Arch.IsTheBest.Planetarium;
 
-import org.Arch.IsTheBest.Planetarium.Utils.Io;
+import org.Arch.IsTheBest.Planetarium.Utils.Io.Io;
 
 public abstract class Main {
     public static void main(String[] args) {
