@@ -2,7 +2,7 @@ package org.Arch.IsTheBest.Planetarium.Data;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;
-import org.Arch.IsTheBest.Planetarium.SistemaSolare.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 
 public class Coordinate {
     private final double X;
@@ -15,6 +15,13 @@ public class Coordinate {
         this.THETA = Math.toDegrees(theta);
         this.X=this.RADIUS * Math.cos(this.THETA);
         this.Y=this.RADIUS * Math.sin(this.THETA);
+    }
+
+    public Coordinate(Coordinate coordinate) {
+        this.X = coordinate.X;
+        this.Y = coordinate.Y;
+        this.RADIUS = coordinate.RADIUS;
+        this.THETA = coordinate.THETA;
     }
 
     public double getX() {
@@ -60,6 +67,6 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return PrettyStrings.prettify(String.format("Coordinate { x = %f, y = %f}",  X, Y), AnsiColors.CYAN, null,  null);
+        return PrettyStrings.prettify(String.format("Coordinate { x = %f, y = %f }",  X, Y), AnsiColors.CYAN, null,  null);
     }
 }
