@@ -73,6 +73,8 @@ public abstract class ArtTacTac {
             prettify("Aggiunta di una luna...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String INIZIALIZZA_PRIMA_PIANETA = PrettyStrings.
             prettify("Inizializza prima un pianeta ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String INIZIALIZZA_PRIMA_LUNA = PrettyStrings.
+            prettify("Inizializza prima un luna ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String ID_PIANETA = PrettyStrings.
             prettify("ID pianeta: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String NOME_PIANETA = PrettyStrings.
@@ -81,6 +83,8 @@ public abstract class ArtTacTac {
             prettify("Pianeta rimosso con successo.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String NOME_DELLA_LUNA = PrettyStrings.
             prettify("Nome della luna: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String RICERCA_DELLA_LUNA = PrettyStrings.
+            prettify("Ricercando una luna", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String MASSA_DELLA_LUNA = PrettyStrings.
             prettify("Massa della luna: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String DISTANZA_DAL_PIANETA_RAGGIO = PrettyStrings.
