@@ -67,6 +67,6 @@ public class Coordinate {
 
     @Override
     public String toString() {
-        return PrettyStrings.prettify(String.format("{ x = %f, y = %f }",  X, Y), AnsiColors.CYAN, null,  null);
+        return String.format("{ x = %f, y = %f }",  X, Y);
     }
 }
