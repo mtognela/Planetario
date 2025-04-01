@@ -5,6 +5,7 @@ import com.kibo.pgar.lib.AnsiWeights;
 import com.kibo.pgar.lib.PrettyStrings;
 
 public abstract class ArtTacTac {
+    public static final String YES_OR_NO = "Is it okay?";
     public static final String GREETER = PrettyStrings.prettify(
             "Are you ready to create your system?", AnsiColors.CYAN, AnsiWeights.BOLD, null);
     public static final String MESSAGE_NAME_SYSTEM = PrettyStrings.prettify(
@@ -40,75 +41,52 @@ public abstract class ArtTacTac {
             prettify("Calc distance", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String MENU_ROUTE_2 = PrettyStrings.
             prettify("Build path", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    ;
     // -----------------------------------------------------------------------------------------------------------
     public static final String[] MENU_ROUTE_OPTIONS = {MENU_ROUTE_1, MENU_ROUTE_2};
     // -----------------------------------------------------------------------------------------------------------
     public static final String ADD_PLANET_GREETER = PrettyStrings.
             prettify("Ready to add a Planet...", AnsiColors.CYAN, AnsiWeights.BOLD, null);
-    public static final String ADD_PLANET_NAME = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.BOLD, null);
-    public static final String ADD_PLANET_MASS = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.BOLD, null);
-    public static final String ADD_PLANET_RADIUS = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.BOLD, null);
-    public static final String ADD = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.BOLD, null);
     public static final String GOODBYE = PrettyStrings.
             prettify("Goodbye!", AnsiColors.CYAN, AnsiWeights.BOLD, null);
     // -----------------------------------------------------------------------------------------------------------
-    public static final String AGGIUNTA_DI_UN_PIANETA = PrettyStrings.
-            prettify("Aggiunta di un pianeta...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String NOME_DEL_PIANETA = PrettyStrings.
-            prettify("Nome del pianeta: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String MASSA_DEL_PIANETA = PrettyStrings.
-            prettify("Massa del pianeta (banani): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String DISTANZA_DAL_SOLE_RAGGIO = PrettyStrings.
-            prettify("Distanza dal sole (raggio): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String ANGOLO_THETA_IN_GRADI = PrettyStrings.
-            prettify("Angolo theta (in gradi): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String PLANET_ADD = PrettyStrings.
+            prettify("Adding a planet...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String PLANET_NAME = PrettyStrings.
+            prettify("Planet Name: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String PLANET_MASS = PrettyStrings.
+            prettify("Planet Mass (bananas): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String DISTANCE_SUN_RADIUS = PrettyStrings.
+            prettify("Distance from sun (radius): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String THETA_IN_RADIUS = PrettyStrings.
+            prettify("Theta angle (in degrees): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String ADD_PLANET_PRINT = PrettyStrings.
-            prettify("Pianeta %s aggiunto con successo!\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String AGGIUNTA_DI_UNA_LUNA = PrettyStrings.
-            prettify("Aggiunta di una luna...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String INIZIALIZZA_PRIMA_PIANETA = PrettyStrings.
-            prettify("Inizializza prima un pianeta ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String INIZIALIZZA_PRIMA_LUNA = PrettyStrings.
-            prettify("Inizializza prima un luna ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String ID_PIANETA = PrettyStrings.
-            prettify("ID pianeta: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String NOME_PIANETA = PrettyStrings.
-            prettify("Nome pianeta: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String PIANETA_RIMOSSO_CON_SUCCESSO = PrettyStrings.
-            prettify("Pianeta rimosso con successo.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String NOME_DELLA_LUNA = PrettyStrings.
-            prettify("Nome della luna: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String RICERCA_DELLA_LUNA = PrettyStrings.
-            prettify("Ricercando una luna", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String MASSA_DELLA_LUNA = PrettyStrings.
-            prettify("Massa della luna: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String DISTANZA_DAL_PIANETA_RAGGIO = PrettyStrings.
-            prettify("Distanza dal pianeta (raggio): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String RIMOZIONE_DI_UN_PIANETA = PrettyStrings.
-            prettify("Rimozione di un pianeta...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String RIMOZIONE_DI_UNA_LUNA = PrettyStrings.
-            prettify("Rimozione di una luna...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String ID_LUNA = PrettyStrings.
-            prettify("ID luna: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String NOME_LUNA = PrettyStrings.
-            prettify("Nome luna: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String LUNA_RIMOSSA_CON_SUCCESSO = PrettyStrings.
-            prettify("Luna rimossa con successo.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("Planet %s added successfully!\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String MOON_ADD = PrettyStrings.
+            prettify("Adding a moon...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String ERROR_INIT_PANET_FIRST = PrettyStrings.
+            prettify("Initialize a planet first", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String ID_PLANET = PrettyStrings.
+            prettify("Planet ID: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String ID_MOON = PrettyStrings.
+            prettify("Moon ID: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String PLANET_REMOVE_SUCESS = PrettyStrings.
+            prettify("Planet removed successfully.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String MOON_NAME = PrettyStrings.
+            prettify("Moon Name: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String MOON_SEARCH = PrettyStrings.
+            prettify("Searching for a moon", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String MOON_MASS = PrettyStrings.
+            prettify("Moon Mass: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String DISTANCE_FROM_PLANET = PrettyStrings.
+            prettify("Distance from planet (radius): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String ERRORE_INIT_SYSTEM_FIRST = PrettyStrings.
+            prettify("Initialize the system first.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String ERROR_MOON_NOT_FOUND = PrettyStrings.
+            prettify("Error: Moon not found.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String ERROR_PLANET_NOT_FOUND = PrettyStrings.
+            prettify("Error: Planet not found.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String ERROR_PLANET_NOT_OWN_NO_MOON = PrettyStrings.
+            prettify("The Planet has no moons.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String CMD = PrettyStrings.
-            prettify("cmd %s\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-
-    // -----------------------------------------------------------------------------------------------------------
-    public static final String ERRORE_SISTEMA_NON_INIZIALIZZATO = PrettyStrings.
-            prettify("Inizializza il prima sistema.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String ERRORE_LUNA_NON_TROVATA = PrettyStrings.
-            prettify("Errore: Luna non trovata.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String ERRORE_PIANETA_NON_TROVATO = PrettyStrings.
-            prettify("Errore: Pianeta non trovato.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String ERRORE_PIANETA_NON_POSSIDE_LUNE = PrettyStrings.
-            prettify("Il Pianeta non possiede lune.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("cmd %s\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);;
 }

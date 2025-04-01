@@ -10,11 +10,11 @@ import java.util.Locale;
 public abstract class Search {
     public static Planet searchPlanet(Integer id, String name) {
         ArrayList<Planet> planets = OrbitingSystem.getInstancePlanets();
-        if (planets == null) return null;
+        if (planets.isEmpty()) return null;
 
         for(Planet planet : planets) {
-            if (planet.getName().contains(name)
-                    && planet.getIDString().contains(Integer.toString(id))) {
+            if (planet.getName().contains(name) &&
+                    planet.getIDString().contains(Integer.toString(id))) {
                 return planet;
             }
 
@@ -24,7 +24,7 @@ public abstract class Search {
 
     public static Moon searchMoonByPlanet(Planet planet, Integer id, String name) {
         ArrayList<Moon> moons = planet.getMoons();
-        if (moons == null) return null;
+        if (moons.isEmpty()) return null;
 
         for(Moon moon : moons) {
             if (moon.getName().contains(name) && moon.getIDString().contains(Integer.toString(id))) {
@@ -36,7 +36,7 @@ public abstract class Search {
 
     public static Moon searchMoon(Integer id, String name) {
         ArrayList<Moon> moons = OrbitingSystem.getMoons();
-        if (moons == null) return null;
+        if (moons.isEmpty()) return null;
 
         for(Moon moon : moons) {
             if (moon.getName().contains(name) && moon.getIDString().contains(Integer.toString(id))) {

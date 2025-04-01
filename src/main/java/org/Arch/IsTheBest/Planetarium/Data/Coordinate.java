@@ -50,17 +50,8 @@ public class Coordinate {
     }
 
     public static Coordinate convertToAbsolute(Coordinate relativeCoordinate, Planet pianetaRif) {
-        double xP = pianetaRif.getCoordinate().getX();
-        double yP = pianetaRif.getCoordinate().getY();
-
-        double r = relativeCoordinate.getRADIUS();
-        double theta = relativeCoordinate.getTHETA();
-
-        double xRel = r * Math.cos(theta);
-        double yRel = r * Math.sin(theta);
-
-        double xAbs = xP + xRel;
-        double yAbs = yP + yRel;
+        double xAbs = pianetaRif.getX() + relativeCoordinate.getRADIUS() * Math.cos(relativeCoordinate.getTHETA());
+        double yAbs = pianetaRif.getY() + relativeCoordinate.getRADIUS() * Math.sin(relativeCoordinate.getTHETA());
 
         return new Coordinate(Math.sqrt(Math.pow(xAbs, 2) + Math.pow(yAbs, 2)), Math.atan2(yAbs, xAbs));
     }
