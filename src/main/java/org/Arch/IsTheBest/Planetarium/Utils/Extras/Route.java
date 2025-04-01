@@ -8,19 +8,19 @@ import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Star;
 
 public abstract class Route {
     public static double fromTo(Planet p1, Planet p2) {
-        return p1.getCoordinate().distanceAss() + p2.getCoordinate().distanceAss();
+        return p1.distanceAss() + p2.distanceAss();
     }
 
     public static double fromTo(Moon m1, Moon m2) {
         if (m1.getPianetaRif().getID() == m2.getPianetaRif().getID()) {
             return (
-                m1.getCoordinate().distanceFrom(m1.getPianetaRif().getCoordinate()) +
-                m2.getCoordinate().distanceFrom(m1.getPianetaRif().getCoordinate())
+                m1.distanceFrom(m1.getPianetaRif().getCoordinate()) +
+                m2.distanceFrom(m1.getPianetaRif().getCoordinate())
             );
         } else {
             return (
-                m1.getCoordinate().distanceFrom(m1.getPianetaRif().getCoordinate()) + m1.getPianetaRif().getCoordinate().distanceAss() +
-                m2.getCoordinate().distanceFrom(m2.getPianetaRif().getCoordinate()) + m2.getPianetaRif().getCoordinate().distanceAss()
+                m1.distanceFrom(m1.getPianetaRif().getCoordinate()) + m1.getPianetaRif().distanceAss() +
+                m2.distanceFrom(m2.getPianetaRif().getCoordinate()) + m2.getPianetaRif().distanceAss()
             );
         }
     }
@@ -28,12 +28,12 @@ public abstract class Route {
     public static double fromTo(Moon m, Planet p) {
         if (m.getPianetaRif().getID() == p.getID()) {
             return (
-                m.getCoordinate().distanceFrom(p.getCoordinate())
+                m.distanceFrom(p.getCoordinate())
             );
         } else {
             return (
-                m.getCoordinate().distanceFrom(m.getPianetaRif().getCoordinate()) +
-                m.getPianetaRif().getCoordinate().distanceAss() + p.getCoordinate().distanceAss()
+                m.distanceFrom(m.getPianetaRif().getCoordinate()) +
+                m.getPianetaRif().distanceAss() + p.distanceAss()
             );
         }
     }
