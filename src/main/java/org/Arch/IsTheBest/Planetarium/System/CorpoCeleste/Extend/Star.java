@@ -1,5 +1,7 @@
 package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend;
 
+import com.kibo.pgar.lib.AnsiColors;
+import com.kibo.pgar.lib.PrettyStrings;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
 
@@ -18,6 +20,10 @@ public class Star extends CorpoCeleste {
         return instance;
    }
 
+    public static String getInstanceToString() {
+        return instance.toString();
+    }
+
     public static String getInstanceName() {
         return instance.getName();
     }
@@ -28,6 +34,6 @@ public class Star extends CorpoCeleste {
 
     @Override
     public String toString() {
-        return super.toString();
+        return PrettyStrings.prettify(super.toString(), AnsiColors.RED, null, null);
     }
 }

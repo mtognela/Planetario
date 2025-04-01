@@ -12,8 +12,8 @@ public abstract class IoMain {
         if (InputData.readYesOrNo(GREETER)) {
             String systemName = InputData.readStringNotEmpty(MESSAGE_NAME_SYSTEM, true);
 
+            String name = InputData.readStringNotEmpty(MESSAGE_NAME_STAR, true);
             double mass  = InputData.readDoubleWithMinimum(MESSAGE_MASS_STAR, 0);
-            String name =  InputData.readStringNotEmpty(MESSAGE_NAME_STAR, true);
 
             Star.createInstance(mass, name);
 
@@ -27,7 +27,7 @@ public abstract class IoMain {
     }
 
     private static void showMenu() {
-        Menu menu = new Menu(MENU_MAIN_TITLE, MENU_MAIN_OPTIONS, true, true, true);
+        Menu menu = new Menu(MENU_MAIN_TITLE, MENU_MAIN_OPTIONS, true, false, false);
 
         int choice;
 
@@ -37,7 +37,7 @@ public abstract class IoMain {
             switch (choice) {
                 case 1:
                     JustKidding.addPlanet();
-                    break;
+                       break;
                 case 2:
                     JustKidding.addMoon();
                     break;

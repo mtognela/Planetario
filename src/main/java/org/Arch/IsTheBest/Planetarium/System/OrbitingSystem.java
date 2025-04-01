@@ -96,10 +96,17 @@ public class OrbitingSystem {
     }
 
     public static StringBuffer showSystem() {
-        StringBuffer planetString = new StringBuffer();
-        for (Planet planet : getInstancePlanets()) {
-            planetString.append(planet.toString()).append("\n");
+        StringBuffer systemString = new StringBuffer();
+
+        systemString.append("\n").append(Star.getInstanceToString());
+        if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
+            systemString.append("\n");
+            for (int i = 0; i < OrbitingSystem.getInstancePlanets().size()-1; i++) {
+                systemString.append(OrbitingSystem.getInstancePlanets().get(i).toString()).append("\n");
+            }
+            systemString.append(OrbitingSystem.getInstancePlanets().getLast().toString());
         }
-        return planetString;
+
+        return systemString;
     }
 }

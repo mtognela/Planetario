@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Extras;
+package org.Arch.IsTheBest.Planetarium.Utils.Path;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;

@@ -24,12 +24,10 @@ public class Moon extends CorpoCeleste {
     }
 
     public String toString() {
-        return PrettyStrings.
-                prettify(String.format("%s Pianeta di rifermento %s ", super.toString(), pianetaRif.toString()), AnsiColors.CYAN, null,  null);
+        return super.toString();
     }
 
     public Planet getPianetaRif() {
         return pianetaRif;
     }
-
 }

@@ -74,7 +74,6 @@ public  abstract  class CorpoCeleste {
 
     @Override
     public String toString() {
-        return PrettyStrings.
-                prettify(String.format("Mass = %f, %s, Nome %s, ID = %d", mass, coordinate.toString(), nome, this.ID), AnsiColors.CYAN, null,  null);
+        return String.format("Mass = %f, %s, Name = %s, ID = %d", mass, coordinate.toString(), nome, this.ID);
     }
 }

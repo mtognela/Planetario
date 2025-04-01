@@ -62,7 +62,7 @@ public abstract class ArtTacTac {
     public static final String NOME_DEL_PIANETA = PrettyStrings.
             prettify("Nome del pianeta: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String MASSA_DEL_PIANETA = PrettyStrings.
-            prettify("Massa del pianeta: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("Massa del pianeta (banani): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String DISTANZA_DAL_SOLE_RAGGIO = PrettyStrings.
             prettify("Distanza dal sole (raggio): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String ANGOLO_THETA_IN_GRADI = PrettyStrings.

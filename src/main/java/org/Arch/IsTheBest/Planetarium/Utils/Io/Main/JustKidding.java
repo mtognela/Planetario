@@ -5,12 +5,14 @@ import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
-import org.Arch.IsTheBest.Planetarium.Utils.Extras.Search;
+import org.Arch.IsTheBest.Planetarium.Utils.Path.Search;
 import org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac;
 
 import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
 
 public abstract class JustKidding {
+
+    public static final String VA_BENE = "Va bene?";
 
     protected static void addPlanet() {
         System.out.println(AGGIUNTA_DI_UN_PIANETA);
@@ -31,15 +33,18 @@ public abstract class JustKidding {
 
             if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
                 System.out.println(AGGIUNTA_DI_UNA_LUNA);
-                planet = Search.searchPlanet(
-                        InputData.readInteger(ID_PIANETA),
-                        InputData.readStringNotEmpty(NOME_DEL_PIANETA, false)
-                );
+                do {
+                    planet = Search.searchPlanet(
+                            InputData.readInteger(ID_PIANETA),
+                            InputData.readStringNotEmpty(NOME_DEL_PIANETA, false)
+                    );
 
-                if (planet == null) {
-                    System.out.println(ERRORE_PIANETA_NON_TROVATO);
-                    return;
-                }
+                    if (planet == null) {
+                        System.out.println(ERRORE_PIANETA_NON_TROVATO);
+                        return;
+                    } else System.out.println(planet.toString());
+
+                } while(!InputData.readYesOrNo("Va bene?"));
             } else {
                 System.out.println(INIZIALIZZA_PRIMA_PIANETA);
                 return;
@@ -54,7 +59,6 @@ public abstract class JustKidding {
             Moon moon = new Moon(moonMass, new Coordinate(radius, theta), moonName, planet);
             planet.addMoon(moon);
 
-            // to do
             System.out.println("Luna " + moonName + " aggiunta con successo a " + planet.getName() + "!");
     }
 
@@ -62,17 +66,19 @@ public abstract class JustKidding {
         Planet planet;
 
         if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
-            System.out.println(RIMOZIONE_DI_UN_PIANETA);
+            System.out.println(AGGIUNTA_DI_UNA_LUNA);
+            do {
+                planet = Search.searchPlanet(
+                        InputData.readInteger(ID_PIANETA),
+                        InputData.readStringNotEmpty(NOME_DEL_PIANETA, false)
+                );
 
-            planet = Search.searchPlanet(
-                    InputData.readInteger(ID_PIANETA),
-                    InputData.readStringNotEmpty(NOME_DEL_PIANETA, false)
-            );
+                if (planet == null) {
+                    System.out.println(ERRORE_PIANETA_NON_TROVATO);
+                    return;
+                } else System.out.println(planet.toString());
 
-            if (planet == null) {
-                System.out.println(ERRORE_PIANETA_NON_TROVATO);
-                return;
-            }
+            } while(InputData.readYesOrNo("Va bene?"));
         } else {
             System.out.println(INIZIALIZZA_PRIMA_PIANETA);
             return;
@@ -87,34 +93,41 @@ public abstract class JustKidding {
 
         if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
             System.out.println(RIMOZIONE_DI_UNA_LUNA);
+            do {
+                planet = Search.searchPlanet(
+                        InputData.readInteger(ID_PIANETA),
+                        InputData.readStringNotEmpty(NOME_DEL_PIANETA, false)
+                );
 
-            planet = Search.searchPlanet(
-                    InputData.readInteger(ID_PIANETA),
-                    InputData.readStringNotEmpty(NOME_DEL_PIANETA, false)
-            );
+                if (planet == null) {
+                    System.out.println(ERRORE_PIANETA_NON_TROVATO);
+                    return;
+                } else System.out.println(planet.toString());
 
-            if (planet == null) {
-                System.out.println(ERRORE_PIANETA_NON_TROVATO);
-                return;
-            } else if (planet.getMoons().isEmpty()) {
-                System.out.println();
-                return;
-            }
+            } while(InputData.readYesOrNo(VA_BENE));
         } else {
             System.out.println(INIZIALIZZA_PRIMA_PIANETA);
             return;
         }
 
+        Moon moon = null;
 
-        Moon moon = Search.searchMoonByPlanet(
-                planet,
-                InputData.readInteger(ID_PIANETA),
-                InputData.readStringNotEmpty(NOME_LUNA, false)
-        );
+        if (!planet.getMoons().isEmpty()) {
+            System.out.println(RICERCA_DELLA_LUNA);
+            do {
+                moon = Search.searchMoonByPlanet(
+                        planet,
+                        InputData.readInteger(ID_LUNA),
+                        InputData.readStringNotEmpty(NOME_DELLA_LUNA, false)
+                );
 
-        if (moon == null) {
-            System.out.println(ERRORE_PIANETA_NON_TROVATO);
-            return;
+                if(moon == null) {
+                    System.out.println(ERRORE_LUNA_NON_TROVATA);
+                    return;
+                } else System.out.println(moon.toString());
+            } while (InputData.readYesOrNo(VA_BENE));
+        } else {
+            System.out.println(INIZIALIZZA_PRIMA_LUNA);
         }
 
         OrbitingSystem.removeMoon(moon);
@@ -125,22 +138,10 @@ public abstract class JustKidding {
 
     protected static void cmd(){
         Coordinate cmd = OrbitingSystem.calcCDM();
-        System.out.printf(ArtTacTac.CMD, cmd.toString());
+        System.out.printf(CMD, cmd.toString());
     }
 
     protected static void showSystem() {
-        if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
-            System.out.println(OrbitingSystem.showSystem());
-        } else {
-            System.out.println(ERRORE_SISTEMA_NON_INIZIALIZZATO);
-        }
-    }
-
-    public static void route() {
-        if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
-            Search search;
-        } else {
-            System.out.println(ERRORE_SISTEMA_NON_INIZIALIZZATO);
-        }
+        System.out.println(OrbitingSystem.showSystem());
     }
 }
