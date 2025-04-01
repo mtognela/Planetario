@@ -34,12 +34,12 @@ public abstract class ArtTacTac {
     // -----------------------------------------------------------------------------------------------------------
     public static final String[] MENU_MAIN_OPTIONS = {MENU_MAIN_1, MENU_MAIN_2, MENU_MAIN_3, MENU_MAIN_4, MENU_MAIN_5, MENU_MAIN_6, MENU_MAIN_7};
     // -----------------------------------------------------------------------------------------------------------
-    public static final String MENU_ROUTE_TITLE = PrettyStrings.prettify("",AnsiColors.CYAN, AnsiWeights.BOLD, null);
+    public static final String MENU_ROUTE_TITLE = PrettyStrings.prettify("Route Menu",AnsiColors.BLUE, AnsiWeights.BOLD, null);
     // -----------------------------------------------------------------------------------------------------------
     public static final String MENU_ROUTE_1 = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("Calc distance", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String MENU_ROUTE_2 = PrettyStrings.
-            prettify("", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("Build path", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     ;
     // -----------------------------------------------------------------------------------------------------------
     public static final String[] MENU_ROUTE_OPTIONS = {MENU_ROUTE_1, MENU_ROUTE_2};
