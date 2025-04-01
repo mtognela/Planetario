@@ -40,6 +40,14 @@ public  abstract  class CorpoCeleste {
         return coordinate;
     }
 
+    public double distanceAss(){
+        return coordinate.distanceAss();
+    }
+
+    public double distanceFrom(Coordinate c) {
+        return coordinate.distanceFrom(c);
+    }
+
     public double getX(){
         return coordinate.getX();
     }
