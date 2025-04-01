@@ -1,7 +1,6 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io;
+package org.Arch.IsTheBest.Planetarium.Utils.Io.Route;
 
 import com.kibo.pgar.lib.*;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 
 import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
 

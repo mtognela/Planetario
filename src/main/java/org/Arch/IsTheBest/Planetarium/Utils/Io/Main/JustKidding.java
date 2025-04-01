@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io;
+package org.Arch.IsTheBest.Planetarium.Utils.Io.Main;
 
 import com.kibo.pgar.lib.InputData;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
@@ -6,6 +6,8 @@ import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 import org.Arch.IsTheBest.Planetarium.Utils.Extras.Search;
+import org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac;
+
 import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
 
 public abstract class JustKidding {

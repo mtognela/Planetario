@@ -1,6 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io;
-
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
+package org.Arch.IsTheBest.Planetarium.Utils.Io.Route;
 
 public abstract class BornOut {
 
