@@ -31,10 +31,10 @@ public abstract class JustKidding {
     }
 
     private static String setupMoon(Planet planet) {
-        String moonName = InputData.readStringNotEmpty(PLANET_NAME, false);
-        double mass = InputData.readDoubleWithMinimum(PLANET_MASS, 0);
+        String moonName = InputData.readStringNotEmpty(MOON_NAME, false);
+        double mass = InputData.readDoubleWithMinimum(MOON_MASS, 0);
 
-        double radius = InputData.readDoubleWithMinimum(DISTANCE_SUN_RADIUS, 0);
+        double radius = InputData.readDoubleWithMinimum(DISTANCE_FROM_PLANET, 0);
         double theta = InputData.readDouble(THETA_IN_RADIUS);
 
         OrbitingSystem.addMoon(mass, radius, theta, moonName, planet);
@@ -67,7 +67,7 @@ public abstract class JustKidding {
                     return null;
                 } else System.out.println(planet.toString());
 
-            } while (InputData.readYesOrNo(YES_OR_NO));
+            } while (!InputData.readYesOrNo(YES_OR_NO));
         } else {
             System.out.println(ERROR_INIT_PANET_FIRST);
             return null;
@@ -91,7 +91,7 @@ public abstract class JustKidding {
                     return null;
                 } else System.out.println(moon.toString());
 
-            } while (InputData.readYesOrNo(YES_OR_NO));
+            } while (!InputData.readYesOrNo(YES_OR_NO));
         } else {
             System.out.println(ERROR_PLANET_NOT_OWN_NO_MOON);
             return null;
