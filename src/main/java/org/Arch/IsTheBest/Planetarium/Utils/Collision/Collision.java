@@ -1,7 +1,9 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Collision;
 
+import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Star;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 import java.util.HashSet;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.Set;
 
 /**
  * Utility class that handles collision detection between celestial bodies in the planetary system.
- * Uses Hashset to avoid duplicate removal entries and follows Java naming conventions.
+ * Uses Hashset to avoid duplicate removal entries and follow Java naming conventions.
  */
 public abstract class Collision {
     /**
@@ -41,6 +43,10 @@ public abstract class Collision {
             for (int j = i + 1; j < planets.size(); j++) {
                 Planet p1 = planets.get(i);
                 Planet p2 = planets.get(j);
+
+                if (crashStar(p1)) planetsToRemove.add(p1);
+                if (crashStar(p2)) planetsToRemove.add(p2);
+
                 if (detectCollision(p1, p2)) {
                     planetsToRemove.add(p1);
                     planetsToRemove.add(p2);
@@ -59,6 +65,10 @@ public abstract class Collision {
             for (int j = i + 1; j < moons.size(); j++) {
                 Moon m1 = moons.get(i);
                 Moon m2 = moons.get(j);
+
+                if (crashStar(m1)) moonsToRemove.add(m1);
+                if (crashStar(m2)) moonsToRemove.add(m2);
+
                 if (detectCollision(m1, m2)) {
                     moonsToRemove.add(m1);
                     moonsToRemove.add(m2);
@@ -78,8 +88,12 @@ public abstract class Collision {
                                                   Set<Planet> planetsToRemove, Set<Moon> moonsToRemove) {
         for (Planet planet : planets) {
             for (Moon moon : moons) {
+
+                if (crashStar(planet)) planetsToRemove.add(planet);
+                if (crashStar(moon)) moonsToRemove.add(moon);
+
                 if (detectCollision(planet, moon)) {
-                    // Only remove moon by default (modify if planet should also be removed)
+                    moonsToRemove.add(moon);
                     moonsToRemove.add(moon);
                 }
             }
@@ -93,7 +107,7 @@ public abstract class Collision {
      * @return True if collision detected
      */
     public static boolean detectCollision(Planet p1, Planet p2) {
-        return p1.distanceFrom(p2.getCoordinate()) <= (p1.getRadius() + p2.getRadius());
+        return p1.getRadius() == p2.getRadius();
     }
 
     /**
@@ -103,7 +117,7 @@ public abstract class Collision {
      * @return True if collision detected
      */
     public static boolean detectCollision(Moon m1, Moon m2) {
-        return m1.distanceFrom(m2.getCoordinate()) <= (m1.getRadius() + m2.getRadius());
+        return m1.distanceFrom(m2.getCOORDINATE()) <= (m1.getRadiusFromPlanetRif() + m2.getRadiusFromPlanetRif());
     }
 
     /**
@@ -113,6 +127,14 @@ public abstract class Collision {
      * @return True if collision detected
      */
     public static boolean detectCollision(Planet p, Moon m) {
-        return p.distanceFrom(m.getCoordinate()) <= (p.getRadius() + m.getRadius());
+        return p.distanceFrom(m.getCOORDINATE()) <= (p.getRadius() + m.getRadiusFromPlanetRif());
+    }
+
+    public static boolean crashStar(Moon m) {
+        return  m.getCOORDINATE().equals(Star.getInstance());
+    }
+
+    public static boolean crashStar(Planet p) {
+        return p.getCOORDINATE().equals(Star.getInstance());
     }
 }

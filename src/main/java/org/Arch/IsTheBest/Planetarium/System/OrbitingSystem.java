@@ -146,13 +146,13 @@ public class OrbitingSystem {
         }
 
         for (Planet planet : planets) {
-            totalWeight += planet.getMass();
-            totalXMass += planet.getPosition().getX() * planet.getMass();
-            totalYMass += planet.getPosition().getY() * planet.getMass();
+            totalWeight += planet.getMASS();
+            totalXMass += planet.getPosition().getX() * planet.getMASS();
+            totalYMass += planet.getPosition().getY() * planet.getMASS();
             for (Moon moon : planet.getMoons()) {
-                totalWeight += moon.getMass();
-                totalXMass += moon.getCoordinate().getX() * moon.getMass();
-                totalYMass += moon.getCoordinate().getY() * moon.getMass();
+                totalWeight += moon.getMASS();
+                totalXMass += moon.getCOORDINATE().getX() * moon.getMASS();
+                totalYMass += moon.getCOORDINATE().getY() * moon.getMASS();
             }
         }
 
@@ -170,10 +170,10 @@ public class OrbitingSystem {
     public static HashSet<Coordinate> getCoordinates() {
         HashSet<Coordinate> coordinates = new HashSet<>();
         for (Planet planet : getPlanets()) {
-            coordinates.add(new Coordinate(planet.getCoordinate()));
+            coordinates.add(new Coordinate(planet.getCOORDINATE()));
         }
         for (Moon moons : getMoons()) {
-            coordinates.add(new Coordinate(moons.getCoordinate()));
+            coordinates.add(new Coordinate(moons.getCOORDINATE()));
         }
         return coordinates;
     }

@@ -1,7 +1,5 @@
 package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend;
 
-import com.kibo.pgar.lib.AnsiColors;
-import com.kibo.pgar.lib.PrettyStrings;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
 
@@ -12,6 +10,7 @@ import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
 public class Moon extends CorpoCeleste {
     private final Planet pianetaRif;
     private final String path;
+    private final double radiusFromPlanetRif;
 
     /**
      * Constructs a Moon with specified mass, coordinates, name, and reference planet.
@@ -23,6 +22,7 @@ public class Moon extends CorpoCeleste {
      */
     public Moon(double mass, Coordinate coordinate, String nome, Planet pianetaRif) {
         super(mass, Coordinate.convertToAbsolute(coordinate, pianetaRif), nome);
+        this.radiusFromPlanetRif = coordinate.getRadius();
         this.pianetaRif = pianetaRif;
         this.path = buildpath();
     }
@@ -34,6 +34,14 @@ public class Moon extends CorpoCeleste {
      */
     private String buildpath() {
         return Star.getInstanceName() + " > " + pianetaRif.getName() + " > " + super.getName();
+    }
+
+    public double getRadius() {
+        return getCOORDINATE().getRadius();
+    }
+
+    public double getRadiusFromPlanetRif() {
+        return radiusFromPlanetRif;
     }
 
     /**
@@ -69,7 +77,7 @@ public class Moon extends CorpoCeleste {
      * @return Coordinate of the parent planet
      */
     public Coordinate getPianetaRifCoordinate() {
-        return this.pianetaRif.getCoordinate();
+        return this.pianetaRif.getCOORDINATE();
     }
 
     /**

@@ -59,7 +59,7 @@ public abstract class Route {
     public static double fromTo(Moon m, Planet p) {
         if (m.getPianetaRif().getID() == p.getID()) {
             return (
-                    m.distanceFrom(p.getCoordinate())
+                    m.distanceFrom(p.getCOORDINATE())
             );
         } else {
             return (

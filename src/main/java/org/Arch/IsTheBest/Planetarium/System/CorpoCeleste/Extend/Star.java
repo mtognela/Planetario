@@ -33,6 +33,10 @@ public class Star extends CorpoCeleste {
         if (instance == null) instance = new Star(mass, nome);
     }
 
+    public double getRadius() {
+        return getCOORDINATE().getRadius();
+    }
+
     /**
      * Gets the singleton instance of the Star.
      *
@@ -75,7 +79,11 @@ public class Star extends CorpoCeleste {
     public static double getInstanceMass() {
         if (instance == null)
             throw new IllegalStateException("Star instance has not been created. Call createInstance first.");
-        return instance.getMass();
+        return instance.getMASS();
+    }
+
+    public static double getInstanceRadius() {
+
     }
 
     /**

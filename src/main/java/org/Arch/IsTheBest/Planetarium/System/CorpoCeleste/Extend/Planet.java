@@ -31,8 +31,12 @@ public class Planet extends CorpoCeleste {
      * @param planet The planet to copy
      */
     public Planet(Planet planet) {
-        super(planet.getMass(), planet.getCoordinate(), planet.getName());
+        super(planet.getMASS(), planet.getCOORDINATE(), planet.getName());
         this.moons = planet.getMoons();
+    }
+
+    public double getRadius() {
+        return getCOORDINATE().getRadius();
     }
 
     /**
@@ -69,7 +73,7 @@ public class Planet extends CorpoCeleste {
      * @return Coordinate object representing the planet's position
      */
     public Coordinate getPosition() {
-        return super.getCoordinate();
+        return super.getCOORDINATE();
     }
 
     /**

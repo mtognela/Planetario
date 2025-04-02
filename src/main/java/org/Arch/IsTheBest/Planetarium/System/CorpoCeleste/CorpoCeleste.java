@@ -2,43 +2,45 @@ package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste;
 
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 
+import java.util.Objects;
+
 /**
  * Abstract base class representing a celestial body in a planetary system.
  * Provides common properties and methods for all types of celestial bodies.
  */
 
 public abstract class CorpoCeleste {
-    private String nome;
-    private double mass;
-    private Coordinate coordinate;
+    private String NAME;
+    private final double MASS;
+    private final Coordinate COORDINATE;
     private final int ID;
 
     /**
      * Constructs a celestial body with specified mass, coordinate, and name.
      *
-     * @param mass The mass of the celestial body
-     * @param coordinate The coordinate position of the celestial body
-     * @param nome The name of the celestial body
+     * @param MASS The mass of the celestial body
+     * @param COORDINATE The coordinate position of the celestial body
+     * @param NAME The name of the celestial body
      */
-    public CorpoCeleste(double mass, Coordinate coordinate, String nome) {
-        this.mass = mass;
-        this.nome = nome;
-        this.coordinate = coordinate;
+    public CorpoCeleste(double MASS, Coordinate COORDINATE, String NAME) {
+        this.MASS = MASS;
+        this.NAME = NAME;
+        this.COORDINATE = COORDINATE;
         this.ID = hashCode();
     }
 
     /**
      * Constructs a celestial body with specified mass, polar coordinates, and name.
      *
-     * @param mass The mass of the celestial body
+     * @param MASS The mass of the celestial body
      * @param radius The radial distance from the reference point
      * @param theta The angular position in radians
-     * @param nome The name of the celestial body
+     * @param NAME The name of the celestial body
      */
-    public CorpoCeleste(double mass, double radius, double theta, String nome) {
-        this.mass = mass;
-        this.coordinate = new Coordinate(radius, theta);
-        this.nome = nome;
+    public CorpoCeleste(double MASS, double radius, double theta, String NAME) {
+        this.MASS = MASS;
+        this.COORDINATE = new Coordinate(radius, theta);
+        this.NAME = NAME;
         this.ID = hashCode();
     }
 
@@ -48,7 +50,7 @@ public abstract class CorpoCeleste {
      * @return The name of the celestial body
      */
     public String getName() {
-        return nome;
+        return NAME;
     }
 
     /**
@@ -56,17 +58,8 @@ public abstract class CorpoCeleste {
      *
      * @return The mass of the celestial body
      */
-    public double getMass() {
-        return mass;
-    }
-
-    /**
-     * Updates the mass of the celestial body by adding the specified value.
-     *
-     * @param update The value to add to the current mass
-     */
-    public void updateMass(double update) {
-        this.mass += update;
+    public double getMASS() {
+        return MASS;
     }
 
     /**
@@ -74,8 +67,8 @@ public abstract class CorpoCeleste {
      *
      * @return The coordinate object representing the position
      */
-    public Coordinate getCoordinate() {
-        return coordinate;
+    public Coordinate getCOORDINATE() {
+        return COORDINATE;
     }
 
     /**
@@ -84,7 +77,7 @@ public abstract class CorpoCeleste {
      * @return The absolute distance from the origin
      */
     public double distanceAss() {
-        return coordinate.distanceAss();
+        return COORDINATE.distanceAss();
     }
 
     /**
@@ -94,7 +87,7 @@ public abstract class CorpoCeleste {
      * @return The distance between this body and the specified coordinate
      */
     public double distanceFrom(Coordinate c) {
-        return coordinate.distanceFrom(c);
+        return COORDINATE.distanceFrom(c);
     }
 
     /**
@@ -103,7 +96,7 @@ public abstract class CorpoCeleste {
      * @return The X coordinate value
      */
     public double getX() {
-        return coordinate.getX();
+        return COORDINATE.getX();
     }
 
     /**
@@ -112,7 +105,7 @@ public abstract class CorpoCeleste {
      * @return The Y coordinate value
      */
     public double getY() {
-        return coordinate.getY();
+        return COORDINATE.getY();
     }
 
     /**
@@ -120,9 +113,7 @@ public abstract class CorpoCeleste {
      *
      * @return The radial distance
      */
-    public double getRadius() {
-        return coordinate.getRadius();
-    }
+    public abstract double getRadius();
 
     /**
      * Gets the theta angle in polar coordinate system.
@@ -130,7 +121,7 @@ public abstract class CorpoCeleste {
      * @return The angular position in radians
      */
     public double getTheta() {
-        return coordinate.getRadius();
+        return COORDINATE.getRadius();
     }
 
     /**
@@ -158,6 +149,10 @@ public abstract class CorpoCeleste {
      */
     @Override
     public String toString() {
-        return String.format("Mass = %f, %s, Name = %s, ID = %d", mass, coordinate.toString(), nome, this.ID);
+        return String.format("Mass = %f, %s, Name = %s, ID = %d", MASS, COORDINATE.toString(), NAME, this.ID);
+    }
+    @Override
+    public int  hashCode() {
+        return Objects.hash(MASS, NAME, COORDINATE);
     }
 }

@@ -60,7 +60,7 @@ public abstract class ArtTacTac {
     public static final String THETA_IN_RADIUS = PrettyStrings.
             prettify("Theta angle (in degrees): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String ADD_PLANET_PRINT = PrettyStrings.
-            prettify("Planet Name %s id = %d added successfully!\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("Planet Name = %s id = %d added successfully!\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String MOON_ADD = PrettyStrings.
             prettify("Adding a moon...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String ERROR_INIT_PANET_FIRST = PrettyStrings.
