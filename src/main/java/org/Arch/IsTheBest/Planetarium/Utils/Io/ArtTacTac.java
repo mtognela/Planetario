@@ -5,7 +5,8 @@ import com.kibo.pgar.lib.AnsiWeights;
 import com.kibo.pgar.lib.PrettyStrings;
 
 public abstract class ArtTacTac {
-    public static final String YES_OR_NO = "Is it okay?";
+    public static final String YES_OR_NO = PrettyStrings.
+            prettify("Is it okay?", AnsiColors.BLACK_BACKGROUND, null, null);
     public static final String GREETER = PrettyStrings.prettify(
             "Are you ready to create your system?", AnsiColors.CYAN, AnsiWeights.BOLD, null);
     public static final String MESSAGE_NAME_SYSTEM = PrettyStrings.prettify(
@@ -36,7 +37,8 @@ public abstract class ArtTacTac {
     public static final String[] MENU_MAIN_OPTIONS = {MENU_MAIN_1, MENU_MAIN_2, MENU_MAIN_3, MENU_MAIN_4, MENU_MAIN_5,
             MENU_MAIN_6, MENU_MAIN_7};
     // -----------------------------------------------------------------------------------------------------------
-    public static final String MENU_ROUTE_TITLE = PrettyStrings.prettify("Route Menu",AnsiColors.BLUE, AnsiWeights.BOLD, null);
+    public static final String MENU_ROUTE_TITLE = PrettyStrings.prettify("Route Menu",
+            AnsiColors.BLUE, AnsiWeights.BOLD, null);
     // -----------------------------------------------------------------------------------------------------------
     public static final String MENU_ROUTE_1 = PrettyStrings.
             prettify("Calc distance", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
@@ -95,7 +97,6 @@ public abstract class ArtTacTac {
     public static final String ADDING_A_MOON_WITH_NAME_S_ID_D_TO_THE_PLANET_S_AND_D = PrettyStrings.
             prettify("Adding a moon with name %s id = %d to the planet %s and %d\n",
                     AnsiColors.CYAN, null, null);
-
     public static final String DO_YOU_WANT_TO_DO_A_MIX_RESEARCH = PrettyStrings.
             prettify("Do you want to do a mix research?", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String Y_FOR_PLANET_AND_N_FOR_MOON = PrettyStrings.
@@ -107,5 +108,8 @@ public abstract class ArtTacTac {
             prettify("Please enter a Moon name ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String PLEASE_ENTER_A_PLANET_ID = PrettyStrings.
             prettify("Please enter a Planet ID: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String STARTING_PLANETARIUM = PrettyStrings.
+            prettify("Starting Planetarium...\n\n\n\n\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String LOTLOTSNEWLINES = "\n\n\n\n\n";
 
 }

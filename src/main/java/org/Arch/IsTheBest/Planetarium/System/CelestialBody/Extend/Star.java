@@ -88,6 +88,7 @@ public class Star extends CelestialBody {
     public String toString() {
         if (instance == null)
             throw new IllegalStateException("Star instance has not been created. Call createInstance first.");
+
         return PrettyStrings.prettify("Star: " + super.toString(), AnsiColors.RED, null, null);
-    }
+    /**/}
 }
