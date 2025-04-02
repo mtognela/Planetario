@@ -1,13 +1,13 @@
-package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend;
+package org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend;
 
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.CelestialBody;
 
 /**
  * Represents a moon celestial body that orbits around a planet.
- * Extends the base CorpoCeleste class with moon-specific properties and behaviors.
+ * Extends the base CelestialBody class with moon-specific properties and behaviors.
  */
-public class Moon extends CorpoCeleste {
+public class Moon extends CelestialBody {
     private final Planet pianetaRif;
     private final String path;
     private final double radiusFromPlanetRif;
@@ -34,10 +34,6 @@ public class Moon extends CorpoCeleste {
      */
     private String buildpath() {
         return Star.getInstanceName() + " > " + pianetaRif.getName() + " > " + super.getName();
-    }
-
-    public double getRadius() {
-        return getCOORDINATE().getRadius();
     }
 
     public double getRadiusFromPlanetRif() {

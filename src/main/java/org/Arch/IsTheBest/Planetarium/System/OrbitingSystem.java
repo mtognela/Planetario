@@ -1,7 +1,7 @@
 package org.Arch.IsTheBest.Planetarium.System;
 
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.*;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.*;
 import org.Arch.IsTheBest.Planetarium.Utils.Collision.Collision;
 
 import java.util.ArrayList;

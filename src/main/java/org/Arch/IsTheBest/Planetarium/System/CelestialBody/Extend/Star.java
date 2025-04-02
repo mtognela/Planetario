@@ -1,16 +1,16 @@
-package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend;
+package org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.CelestialBody;
 
 /**
  * Represents a star celestial body that serves as the center of a planetary system.
  * Implements the singleton pattern to ensure only one star instance exists per system.
- * Extends the base CorpoCeleste class with star-specific properties and behaviors.
+ * Extends the base CelestialBody class with star-specific properties and behaviors.
  */
-public class Star extends CorpoCeleste {
+public class Star extends CelestialBody {
     private static Star instance = null;
 
     /**
@@ -31,10 +31,6 @@ public class Star extends CorpoCeleste {
      */
     public static void createInstance(double mass, String nome) {
         if (instance == null) instance = new Star(mass, nome);
-    }
-
-    public double getRadius() {
-        return getCOORDINATE().getRadius();
     }
 
     /**

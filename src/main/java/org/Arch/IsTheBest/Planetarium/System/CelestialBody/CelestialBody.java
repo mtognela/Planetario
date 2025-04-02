@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste;
+package org.Arch.IsTheBest.Planetarium.System.CelestialBody;
 
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 
@@ -9,7 +9,7 @@ import java.util.Objects;
  * Provides common properties and methods for all types of celestial bodies.
  */
 
-public abstract class CorpoCeleste {
+public abstract class CelestialBody {
     private String NAME;
     private final double MASS;
     private final Coordinate COORDINATE;
@@ -22,7 +22,7 @@ public abstract class CorpoCeleste {
      * @param COORDINATE The coordinate position of the celestial body
      * @param NAME The name of the celestial body
      */
-    public CorpoCeleste(double MASS, Coordinate COORDINATE, String NAME) {
+    public CelestialBody(double MASS, Coordinate COORDINATE, String NAME) {
         this.MASS = MASS;
         this.NAME = NAME;
         this.COORDINATE = COORDINATE;
@@ -37,7 +37,7 @@ public abstract class CorpoCeleste {
      * @param theta The angular position in radians
      * @param NAME The name of the celestial body
      */
-    public CorpoCeleste(double MASS, double radius, double theta, String NAME) {
+    public CelestialBody(double MASS, double radius, double theta, String NAME) {
         this.MASS = MASS;
         this.COORDINATE = new Coordinate(radius, theta);
         this.NAME = NAME;
@@ -113,7 +113,9 @@ public abstract class CorpoCeleste {
      *
      * @return The radial distance
      */
-    public abstract double getRadius();
+    public double getRadius(){
+        return COORDINATE.getRadius();
+    }
 
     /**
      * Gets the theta angle in polar coordinate system.

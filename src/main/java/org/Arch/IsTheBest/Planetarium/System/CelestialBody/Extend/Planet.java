@@ -1,16 +1,16 @@
-package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend;
+package org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.CelestialBody;
 import java.util.ArrayList;
 
 /**
  * Represents a planet celestial body that can have moons orbiting around it.
- * Extends the base CorpoCeleste class with planet-specific properties and behaviors.
+ * Extends the base CelestialBody class with planet-specific properties and behaviors.
  */
-public class Planet extends CorpoCeleste {
+public class Planet extends CelestialBody {
     private ArrayList<Moon> moons;
 
     /**
@@ -33,10 +33,6 @@ public class Planet extends CorpoCeleste {
     public Planet(Planet planet) {
         super(planet.getMASS(), planet.getCOORDINATE(), planet.getName());
         this.moons = planet.getMoons();
-    }
-
-    public double getRadius() {
-        return getCOORDINATE().getRadius();
     }
 
     /**

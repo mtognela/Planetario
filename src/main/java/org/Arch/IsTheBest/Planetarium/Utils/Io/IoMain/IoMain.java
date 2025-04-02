@@ -1,7 +1,7 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Io.IoMain;
 
 import com.kibo.pgar.lib.*;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Star;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Star;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 import org.Arch.IsTheBest.Planetarium.Utils.Io.IoRoute.IoRoute;
 

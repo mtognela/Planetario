@@ -1,9 +1,9 @@
 package org.Arch.IsTheBest.Planetarium.Path;
 
 import com.kibo.pgar.lib.InputData;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.CelestialBody;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Moon;
+import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 
 import java.util.ArrayList;
@@ -81,7 +81,7 @@ public abstract class Search {
      * @return The found celestial body ({@code Planet} or {@code Moon}), or {@code null} if no match is found.
      */
 
-    public static CorpoCeleste justSearch() {
+    public static CelestialBody justSearch() {
         ArrayList<Planet> planets = OrbitingSystem.getPlanets();
         ArrayList<Moon> moons = OrbitingSystem.getMoons();
         Planet planetToSearch = null;
