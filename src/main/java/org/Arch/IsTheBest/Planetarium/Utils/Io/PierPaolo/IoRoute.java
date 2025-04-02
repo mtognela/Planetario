@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io.Route;
+package org.Arch.IsTheBest.Planetarium.Utils.Io.PierPaolo;
 
 import com.kibo.pgar.lib.*;
 
@@ -15,7 +15,7 @@ public abstract class IoRoute {
 
             switch (choice) {
                 case 1:
-                    BornOut.fromTo();
+                    BornOut.fromToInterface();
                     break;
                 case 2:
                     BornOut.BuildPathFromTo();
