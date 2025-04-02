@@ -26,7 +26,7 @@ public class OrbitingSystem {
         return instance;
     }
 
-    public static ArrayList<Planet> getInstancePlanets() {
+    public static ArrayList<Planet> getPlanets() {
         return planets;
     }
 
@@ -84,7 +84,7 @@ public class OrbitingSystem {
     }
 
     public static ArrayList<Moon> getMoons() {
-        ArrayList<Planet> planets = getInstancePlanets();
+        ArrayList<Planet> planets = getPlanets();
 
         ArrayList<Moon> moons = new ArrayList<>();
 
@@ -99,12 +99,12 @@ public class OrbitingSystem {
         StringBuffer systemString = new StringBuffer();
 
         systemString.append("\n").append(Star.getInstanceToString());
-        if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
+        if (!OrbitingSystem.getPlanets().isEmpty()) {
             systemString.append("\n");
-            for (int i = 0; i < OrbitingSystem.getInstancePlanets().size()-1; i++) {
-                systemString.append(OrbitingSystem.getInstancePlanets().get(i).toString()).append("\n");
+            for (int i = 0; i < OrbitingSystem.getPlanets().size()-1; i++) {
+                systemString.append(OrbitingSystem.getPlanets().get(i).toString()).append("\n");
             }
-            systemString.append(OrbitingSystem.getInstancePlanets().getLast().toString());
+            systemString.append(OrbitingSystem.getPlanets().getLast().toString());
         }
 
         return systemString;

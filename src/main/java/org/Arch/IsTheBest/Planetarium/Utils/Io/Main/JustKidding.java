@@ -28,7 +28,7 @@ public abstract class JustKidding {
     protected static void addMoon() {
             Planet planet;
 
-            if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
+            if (!OrbitingSystem.getPlanets().isEmpty()) {
                 System.out.println(MOON_ADD);
                 do {
                     planet = Search.searchPlanet(
@@ -62,7 +62,7 @@ public abstract class JustKidding {
     protected static void removePlanet() {
         Planet planet;
 
-        if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
+        if (!OrbitingSystem.getPlanets().isEmpty()) {
             System.out.println(MOON_ADD);
             do {
                 planet = Search.searchPlanet(
@@ -88,7 +88,7 @@ public abstract class JustKidding {
     protected static void removeMoon() {
         Planet planet;
 
-        if (!OrbitingSystem.getInstancePlanets().isEmpty()) {
+        if (!OrbitingSystem.getPlanets().isEmpty()) {
             System.out.println();
             do {
                 planet = Search.searchPlanet(
