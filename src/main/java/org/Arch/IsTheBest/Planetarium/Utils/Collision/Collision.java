@@ -5,7 +5,7 @@ import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 import java.util.ArrayList;
-import java.util.HashSet;
+
 // Chi Mola mia Dura la vince
 public abstract class Collision {
     public static boolean isCoordinateUnique(ArrayList<Planet> planets, Coordinate coordinate) {
@@ -42,7 +42,7 @@ public abstract class Collision {
     }
 
     public static void checkCollisions() {
-        ArrayList<Planet> planets = OrbitingSystem.getInstancePlanets();
+        ArrayList<Planet> planets = OrbitingSystem.getPlanets();
         ArrayList<Moon> moons = OrbitingSystem.getMoons();
 
         ArrayList<Moon> removeMoons = new ArrayList<>();
