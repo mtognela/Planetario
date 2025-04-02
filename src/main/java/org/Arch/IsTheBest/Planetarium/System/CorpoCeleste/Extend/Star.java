@@ -34,6 +34,6 @@ public class Star extends CorpoCeleste {
 
     @Override
     public String toString() {
-        return PrettyStrings.prettify(super.toString(), AnsiColors.RED, null, null);
+        return PrettyStrings.prettify("Star: " + super.toString(), AnsiColors.RED, null, null);
     }
 }

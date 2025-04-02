@@ -56,6 +56,10 @@ public class Coordinate {
         return new Coordinate(Math.sqrt(Math.pow(xAbs, 2) + Math.pow(yAbs, 2)), Math.atan2(yAbs, xAbs));
     }
 
+    public static Coordinate convertToPolar(double x, double y) {
+        return new Coordinate(Math.sqrt(Math.pow(x, 2) + Math.pow(y,  2)), Math.atan2(x, y));
+    }
+
     @Override
     public String toString() {
         return String.format("{ x = %f, y = %f }",  X, Y);

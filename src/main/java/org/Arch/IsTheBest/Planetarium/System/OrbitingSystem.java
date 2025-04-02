@@ -5,6 +5,7 @@ import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.*;
 import org.Arch.IsTheBest.Planetarium.Utils.Collision.Collision;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class OrbitingSystem {
     private static OrbitingSystem instance;
@@ -62,7 +63,7 @@ public class OrbitingSystem {
         double totalXMass = 0;
         double totalYMass = 0;
 
-        if (planets == null) {
+        if (planets.isEmpty()) {
             return new Coordinate(0.0, 0.0);
         }
 
@@ -80,7 +81,18 @@ public class OrbitingSystem {
         double cdmX = (totalWeight != 0) ? totalXMass / totalWeight : 0;
         double cdmY = (totalWeight != 0) ? totalYMass / totalWeight : 0;
 
-        return new Coordinate(Math.sqrt(Math.pow(cdmX, 2) + Math.pow(cdmY, 2)), Math.atan2(cdmY, cdmX));
+        return new Coordinate(Coordinate.convertToPolar(cdmX, cdmY));
+    }
+
+    public static HashSet<Coordinate> getCoordinates() {
+        HashSet<Coordinate> coordinates = new HashSet<>();
+        for (Planet planet : getPlanets()) {
+            coordinates.add(new Coordinate(planet.getCoordinate()));
+        }
+        for (Moon moons : getMoons()) {
+            coordinates.add(new Coordinate(moons.getCoordinate()));
+        }
+        return coordinates;
     }
 
     public static ArrayList<Moon> getMoons() {

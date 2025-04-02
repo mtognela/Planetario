@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io.Main;
+package org.Arch.IsTheBest.Planetarium.Utils.Io.IoMain;
 
 import com.kibo.pgar.lib.InputData;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
@@ -58,7 +58,7 @@ public abstract class JustKidding {
             System.out.println("Getting Planet");
             do {
                 planet = Search.searchPlanet(
-                        Integer.parseInt(InputData.readSting(ID_PLANET)),
+                        InputData.readInteger(ID_PLANET),
                         InputData.readStringNotEmpty(PLANET_NAME, false)
                 );
 
@@ -82,7 +82,7 @@ public abstract class JustKidding {
             do {
                 moon = Search.searchMoonByPlanet(
                         planet,
-                        Integer.parseInt(InputData.readSting(ID_MOON)),
+                        InputData.readInteger(ID_MOON),
                         InputData.readStringNotEmpty(MOON_NAME, false)
                 );
 
