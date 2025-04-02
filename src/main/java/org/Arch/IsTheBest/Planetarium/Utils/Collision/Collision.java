@@ -121,7 +121,7 @@ public abstract class Collision {
     }
 
     /**
-     * Detects collision between a planet and a moon based on distance and radii.
+     * Detects collision between a planet and a moon based on distance and radius.
      * @param p Planet
      * @param m Moon
      * @return True if collision detected
@@ -130,11 +130,21 @@ public abstract class Collision {
         return p.distanceFrom(m.getCOORDINATE()) <= (p.getRadius() + m.getRadiusFromPlanetRif());
     }
 
+    /**
+     * Detects collision between the star and a moon based on distance and radius
+     * @param m Moon
+     * @return True if collision detected
+     */
     public static boolean crashStar(Moon m) {
-        return  m.getCOORDINATE().equals(Star.getInstance());
+        return m.distanceAss() <= (m.getRadiusFromPlanetRif());
     }
 
+    /**
+     * Detects collision between the star and a planet based on distance and radius
+     * @param p Planet
+     * @return True if collision detected
+     */
     public static boolean crashStar(Planet p) {
-        return p.getCOORDINATE().equals(Star.getInstance());
+        return p.distanceAss() <= (p.getRadius());
     }
 }
