@@ -82,9 +82,6 @@ public class Star extends CorpoCeleste {
         return instance.getMASS();
     }
 
-    public static double getInstanceRadius() {
-
-    }
 
     /**
      * Returns a formatted string representation of the star.
