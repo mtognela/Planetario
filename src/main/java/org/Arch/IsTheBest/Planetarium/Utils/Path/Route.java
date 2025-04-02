@@ -14,13 +14,13 @@ public abstract class Route {
     public static double fromTo(Moon m1, Moon m2) {
         if (m1.getPianetaRif().getID() == m2.getPianetaRif().getID()) {
             return (
-                m1.distanceFrom(m1.getPianetaRif().getCoordinate()) +
-                m2.distanceFrom(m1.getPianetaRif().getCoordinate())
+                m1.distanceFrom(m1.getPianetaRifCoordinate()) +
+                m2.distanceFrom(m1.getPianetaRifCoordinate())
             );
         } else {
             return (
-                m1.distanceFrom(m1.getPianetaRif().getCoordinate()) + m1.getPianetaRif().distanceAss() +
-                m2.distanceFrom(m2.getPianetaRif().getCoordinate()) + m2.getPianetaRif().distanceAss()
+                m1.distanceFrom(m1.getPianetaRifCoordinate()) + m1.getPianetaRifDistanceAss() +
+                m2.distanceFrom(m2.getPianetaRifCoordinate()) + m2.getPianetaRifDistanceAss()
             );
         }
     }
@@ -32,19 +32,19 @@ public abstract class Route {
             );
         } else {
             return (
-                m.distanceFrom(m.getPianetaRif().getCoordinate()) +
-                m.getPianetaRif().distanceAss() + p.distanceAss()
+                m.distanceFrom(m.getPianetaRifCoordinate()) +
+                m.getPianetaRifDistanceAss() + p.distanceAss()
             );
         }
     }
 
-    public static String BuildPathFromTo(Planet p1, Planet p2) {
+    public static String buildPathFromTo(Planet p1, Planet p2) {
         return PrettyStrings.
                 prettify(String.format("%s > %s > %s", p1.getName(), Star.getInstanceName(), p2.getName()),
                         AnsiColors.CYAN, null, null);
     }
 
-    public static String BuildPathFromTo(Moon m, Planet p) {
+    public static String buildPathFromTo(Moon m, Planet p) {
         if (m.getPianetaRif().getID() == p.getID()) {
             return PrettyStrings.prettify(String.format("%s > %s", p.getName(), m.getName()),
                     AnsiColors.CYAN, null, null);
@@ -54,15 +54,15 @@ public abstract class Route {
         }
     }
 
-    public static String BuildPathFromTo(Moon m1, Moon m2) {
+    public static String buildPathFromTo(Moon m1, Moon m2) {
         if (m1.getPianetaRif().getIDString().equals(m2.getPianetaRif().getIDString())) {
             return PrettyStrings.
                     prettify(String.format("%s > %s > %s", m1.getName(), m1.getPianetaRif().getName(), m2.getName()),
-                    AnsiColors.CYAN, null, null);
+                            AnsiColors.CYAN, null, null);
         } else {
             return PrettyStrings.prettify(
                     String.format("%s > %s > %s > %s > %s",
-                    m1.getName(), m1.getPianetaRif().getName(), Star.getInstanceName(), m2.getPianetaRif().getName(), m2.getName()),
+                            m1.getName(), m1.getPianetaRif().getName(), Star.getInstanceName(), m2.getPianetaRif().getName(), m2.getName()),
                     AnsiColors.CYAN, null, null);
         }
     }

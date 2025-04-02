@@ -30,4 +30,16 @@ public class Moon extends CorpoCeleste {
     public Planet getPianetaRif() {
         return pianetaRif;
     }
+
+    public Coordinate getPianetaRifCoordinate() {
+        return this.pianetaRif.getCoordinate();
+    }
+
+    public double getPianetaRifDistanceAss() {
+        return this.pianetaRif.distanceAss();
+    }
+
+    public double getPianetaRifDistanceFrom(Coordinate coordinate) {
+        return this.pianetaRif.distanceFrom(coordinate);
+    }
 }
