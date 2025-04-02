@@ -15,7 +15,7 @@ import java.util.ArrayList;
 /**
  * Abstract class responsible for handling planetary navigation and pathfinding.
  */
-public abstract class BornOut {
+public abstract class BurnOut {
 
     /**
      * Computes and displays the distance between celestial bodies based on user input.

@@ -15,10 +15,10 @@ public abstract class IoRoute {
 
             switch (choice) {
                 case 1:
-                    BornOut.fromToInterface();
+                    BurnOut.fromToInterface();
                     break;
                 case 2:
-                    BornOut.BuildPathFromTo();
+                    BurnOut.BuildPathFromTo();
                     break;
             }
         } while (choice != 0);
