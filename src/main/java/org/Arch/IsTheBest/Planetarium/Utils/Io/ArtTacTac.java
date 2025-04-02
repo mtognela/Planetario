@@ -54,7 +54,7 @@ public abstract class ArtTacTac {
     public static final String PLANET_NAME = PrettyStrings.
             prettify("Planet Name: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String PLANET_MASS = PrettyStrings.
-            prettify("Planet Mass (bananas): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("Planet Mass: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String DISTANCE_SUN_RADIUS = PrettyStrings.
             prettify("Distance from sun (radius): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String THETA_IN_RADIUS = PrettyStrings.
