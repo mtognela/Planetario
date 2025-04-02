@@ -1,6 +1,5 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Collision;
 
-import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
@@ -15,32 +14,11 @@ public abstract class Collision {
         ArrayList<Moon> removeMoons = new ArrayList<>();
         ArrayList<Planet> removePlanets = new ArrayList<>();
 
-        for (int i = 0; i < planets.size(); i++) {
-            for (int j = i + 1; j < planets.size(); j++) {
-                if (detectCollision(planets.get(i), planets.get(j))) {
-                    removePlanets.add(planets.get(i));
-                    removePlanets.add(planets.get(j));
-                }
-            }
-        }
+        extractedPlanet(planets, removePlanets);
 
-        for (int k = 0; k < moons.size(); k++) {
-            for (int l = k + 1; l < moons.size(); l++) {
-                if (detectCollision(moons.get(k), moons.get(l))) {
-                    removeMoons.add(moons.get(k));
-                    removeMoons.add(moons.get(l));
-                }
-            }
-        }
+        extractedMoon(moons, removeMoons);
 
-        for (Planet planet : planets) {
-            for (Moon moon : moons) {
-                if (detectCollision(planet, moon)) {
-                    removePlanets.add(planet);
-                    removeMoons.add(moon);
-                }
-            }
-        }
+        extractedMix(planets, moons, removePlanets, removeMoons);
 
         for (Moon removeMoon : removeMoons) {
             OrbitingSystem.removeMoon(removeMoon);
@@ -48,6 +26,37 @@ public abstract class Collision {
         for (Planet removePlanet : removePlanets) {
             OrbitingSystem.removePlanet(removePlanet);
         }
+    }
+
+    private static void extractedMix(ArrayList<Planet> planets, ArrayList<Moon> moons, ArrayList<Planet> removePlanets, ArrayList<Moon> removeMoons) {
+        for (Planet planet : planets) {
+            for (Moon moon : moons) {
+                if (!detectCollision(planet, moon)) {
+                    removePlanets.add(planet);
+                    removeMoons.add(moon);
+                }
+            }
+        }
+    }
+
+    private static void extractedPlanet(ArrayList<Planet> planets, ArrayList<Planet> removePlanets) {
+        for(int i = 0; i < planets.size(); i++)
+            for (int j = i + 1; j < planets.size(); j++) {
+                if (!detectCollision(planets.get(i), planets.get(j))) {
+                    removePlanets.add(planets.get(i));
+                    removePlanets.add(planets.get(j));
+                }
+            }
+    }
+
+    private static void extractedMoon(ArrayList<Moon> moons, ArrayList<Moon> removeMoons) {
+        for (int k = 0; k < moons.size(); k++)
+            for (int l = k + 1; l < moons.size(); l++) {
+                if (!detectCollision(moons.get(k), moons.get(l))) {
+                    removeMoons.add(moons.get(k));
+                    removeMoons.add(moons.get(l));
+                }
+            }
     }
 
     private static boolean detectCollision(Planet p1, Planet p2) {
