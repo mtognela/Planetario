@@ -1,7 +1,5 @@
 package org.Arch.IsTheBest.Planetarium.System.CorpoCeleste;
 
-import com.kibo.pgar.lib.AnsiColors;
-import com.kibo.pgar.lib.PrettyStrings;
 import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 
 public  abstract  class CorpoCeleste {
@@ -60,7 +58,7 @@ public  abstract  class CorpoCeleste {
         return coordinate.getRADIUS();
     }
 
-    public double getTheta(){
+    public double getTHETA() {
         return coordinate.getTHETA();
     }
 
