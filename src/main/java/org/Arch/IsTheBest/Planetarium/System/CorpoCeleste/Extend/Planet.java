@@ -27,13 +27,13 @@ public class Planet extends CorpoCeleste {
         StringBuilder moonToString = new StringBuilder();
         if (!moons.isEmpty()) {
             for (int i = 0; i < moons.size()-1; i++) {
-                moonToString.append(moons.get(i).toString()).append("\n");
+                moonToString.append("\n").append(moons.get(i).toString()).append("\n");
             }
-            moonToString.append(moons.getLast().toString());
+            moonToString.append("\n").append(moons.getLast().toString());
         }
 
         return PrettyStrings.
-                prettify(String.format("%s  %s",super.toString(), moonToString.toString()),
+                prettify(String.format("%s %s",super.toString(), moonToString.toString()),
                         AnsiColors.GREEN, null, null);
     }
 

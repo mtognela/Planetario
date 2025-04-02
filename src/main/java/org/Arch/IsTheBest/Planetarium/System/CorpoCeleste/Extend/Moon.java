@@ -24,7 +24,7 @@ public class Moon extends CorpoCeleste {
     }
 
     public String toString() {
-        return "\t" + super.toString();
+        return "\tMoon: " + super.toString();
     }
 
     public Planet getPianetaRif() {
