@@ -7,57 +7,125 @@ import org.Arch.IsTheBest.Planetarium.Utils.Collision.Collision;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+/**
+ * Represents an orbiting system containing a star and its planets with moons.
+ * This class follows the singleton pattern to ensure only one instance exists.
+ */
 public class OrbitingSystem {
     private static OrbitingSystem instance;
     private static ArrayList<Planet> planets;
     private static Star star;
     private static String systemName;
 
+    /**
+     * Private constructor for creating an OrbitingSystem instance.
+     *
+     * @param star The star at the center of the system
+     * @param systemName The name of the orbiting system
+     */
     private OrbitingSystem(Star star, String systemName) {
         OrbitingSystem.star = star;
         OrbitingSystem.planets = new ArrayList<>();
         OrbitingSystem.systemName = systemName;
     }
 
+    /**
+     * Creates a singleton instance of the OrbitingSystem.
+     *
+     * @param star The star at the center of the system
+     * @param systemName The name of the orbiting system
+     */
     public static void createInstance(Star star, String systemName)  {
         if (instance == null) instance = new OrbitingSystem(star, systemName);
     }
 
+    /**
+     * Gets the singleton instance of the OrbitingSystem.
+     *
+     * @return The singleton instance
+     */
     public static OrbitingSystem getInstance() {
         return instance;
     }
 
+    /**
+     * Gets the list of planets in the system.
+     *
+     * @return ArrayList of planets
+     */
     public static ArrayList<Planet> getPlanets() {
         return planets;
     }
 
+    /**
+     * Gets the name of the orbiting system.
+     *
+     * @return The system name
+     */
     public static String getInstanceName() {
         return systemName;
     }
 
+    /**
+     * Adds a new planet to the system with specified parameters.
+     *
+     * @param mass The mass of the planet
+     * @param radius The orbital radius of the planet
+     * @param theta The angular position of the planet
+     * @param name The name of the planet
+     */
     public static void addPlanet(double mass, double radius, double theta, String name) {
         planets.add(new Planet(mass, new Coordinate(radius, theta), name));
         Collision.checkCollisions();
     }
 
+    /**
+     * Adds a planet to the system by copying an existing planet.
+     *
+     * @param planet The planet to be added
+     */
     public static void addPlanet(Planet planet) {
         planets.add(new Planet(planet));
         Collision.checkCollisions();
     }
 
+    /**
+     * Removes a planet from the system.
+     *
+     * @param planet The planet to be removed
+     */
     public static void removePlanet(Planet planet) {
         planets.remove(planet);
     }
 
+    /**
+     * Adds a moon to a specified planet in the system.
+     *
+     * @param mass The mass of the moon
+     * @param radius The orbital radius of the moon
+     * @param theta The angular position of the moon
+     * @param nome The name of the moon
+     * @param planet The planet to which the moon will be added
+     */
     public static void addMoon(double mass, double radius, double theta, String nome, Planet planet) {
         planet.addMoon(mass, radius , theta, nome, planet);
         Collision.checkCollisions();
     }
 
+    /**
+     * Removes a moon from its parent planet.
+     *
+     * @param moon The moon to be removed
+     */
     public static void removeMoon(Moon moon) {
         moon.getPianetaRif().removeMoon(moon);
     }
 
+    /**
+     * Calculates the center of mass of the entire system.
+     *
+     * @return Coordinate object representing the center of mass in polar coordinates
+     */
     public static Coordinate calcCDM() {
         double totalWeight = 0;
         double totalXMass = 0;
@@ -84,6 +152,11 @@ public class OrbitingSystem {
         return new Coordinate(Coordinate.convertToPolar(cdmX, cdmY));
     }
 
+    /**
+     * Gets all coordinates of celestial bodies in the system.
+     *
+     * @return HashSet of Coordinate objects
+     */
     public static HashSet<Coordinate> getCoordinates() {
         HashSet<Coordinate> coordinates = new HashSet<>();
         for (Planet planet : getPlanets()) {
@@ -95,6 +168,11 @@ public class OrbitingSystem {
         return coordinates;
     }
 
+    /**
+     * Gets all moons in the system across all planets.
+     *
+     * @return ArrayList of all moons in the system
+     */
     public static ArrayList<Moon> getMoons() {
         ArrayList<Planet> planets = getPlanets();
 
@@ -107,6 +185,11 @@ public class OrbitingSystem {
         return moons;
     }
 
+    /**
+     * Generates a string representation of the entire system.
+     *
+     * @return StringBuffer containing the system's string representation
+     */
     public static StringBuffer showSystem() {
         StringBuffer systemString = new StringBuffer();
 

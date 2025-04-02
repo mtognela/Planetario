@@ -9,8 +9,16 @@ import org.Arch.IsTheBest.Planetarium.Utils.Path.Search;
 
 import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
 
+/**
+ * Utility class for managing planetary and lunar systems.
+ * This class provides methods to add and remove planets and moons,
+ * as well as display system information.
+ */
 public abstract class JustKidding {
 
+    /**
+     * Adds a new planet to the orbiting system.
+     */
     protected static void addPlanet() {
         System.out.println(PLANET_ADD);
 
@@ -19,6 +27,11 @@ public abstract class JustKidding {
         System.out.printf(ADD_PLANET_PRINT, planetName);
     }
 
+    /**
+     * Sets up a new planet with user input data.
+     *
+     * @return The name of the newly added planet.
+     */
     private static String setupPlanet() {
         String planetName = InputData.readStringNotEmpty(PLANET_NAME, false);
         double mass = InputData.readDoubleWithMinimum(PLANET_MASS, 0);
@@ -30,6 +43,12 @@ public abstract class JustKidding {
         return planetName;
     }
 
+    /**
+     * Sets up a new moon with user input data.
+     *
+     * @param planet The planet around which the moon orbits.
+     * @return The name of the newly added moon.
+     */
     private static String setupMoon(Planet planet) {
         String moonName = InputData.readStringNotEmpty(MOON_NAME, false);
         double mass = InputData.readDoubleWithMinimum(MOON_MASS, 0);
@@ -41,6 +60,9 @@ public abstract class JustKidding {
         return moonName;
     }
 
+    /**
+     * Adds a moon to an existing planet.
+     */
     protected static void addMoon() {
         Planet planet = null;
 
@@ -52,6 +74,11 @@ public abstract class JustKidding {
         System.out.println("Luna " + moonName + " aggiunta con successo a " + planet.getName() + "!");
     }
 
+    /**
+     * Retrieves a planet based on user input.
+     *
+     * @return The selected planet, or null if not found.
+     */
     private static Planet getPlanet() {
         Planet planet = null;
         if (!OrbitingSystem.getPlanets().isEmpty()) {
@@ -75,6 +102,12 @@ public abstract class JustKidding {
         return planet;
     }
 
+    /**
+     * Retrieves a moon belonging to a given planet based on user input.
+     *
+     * @param planet The planet whose moon is being searched.
+     * @return The selected moon, or null if not found.
+     */
     public static Moon getMoon(Planet planet) {
         Moon moon = null;
         if (!planet.getMoons().isEmpty()) {
@@ -99,6 +132,9 @@ public abstract class JustKidding {
         return null;
     }
 
+    /**
+     * Removes a planet from the orbiting system.
+     */
     protected static void removePlanet() {
         Planet planet = null;
 
@@ -109,6 +145,9 @@ public abstract class JustKidding {
         System.out.println(PLANET_REMOVE_SUCESS);
     }
 
+    /**
+     * Removes a moon from its planet in the orbiting system.
+     */
     protected static void removeMoon() {
         Planet planet = null;
 
@@ -126,11 +165,17 @@ public abstract class JustKidding {
         System.out.println(MOON_ADD);
     }
 
+    /**
+     * Calculates and displays the center of mass of the planetary system.
+     */
     protected static void cmd(){
         Coordinate cmd = OrbitingSystem.calcCDM();
         System.out.printf(CMD, cmd.toString());
     }
 
+    /**
+     * Displays the current state of the orbiting system.
+     */
     protected static void showSystem() {
         System.out.println(OrbitingSystem.showSystem());
     }

@@ -1,32 +1,54 @@
 package org.Arch.IsTheBest.Planetarium.Utils.Path;
 
+import com.kibo.pgar.lib.InputData;
+import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
 
 import java.util.ArrayList;
 
+import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.DO_YOU_WANT_TO_SEARCH_AGAIN;
+import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.NO_PLANET_FOUND;
+
+/**
+ * The {@code Search} class provides utility methods to search for planets and moons within the orbiting system.
+ */
 public abstract class Search {
 
+    /**
+     * Searches for a planet in the orbiting system based on its ID and name.
+     *
+     * @param id   The ID of the planet to search for.
+     * @param name The name of the planet to search for.
+     * @return The {@code Planet} object if found, otherwise {@code null}.
+     */
     public static Planet searchPlanet(Integer id, String name) {
         ArrayList<Planet> planets = OrbitingSystem.getPlanets();
         if (planets.isEmpty()) return null;
 
-        for(Planet planet : planets) {
+        for (Planet planet : planets) {
             if (planet.getName().contains(name) &&
                     planet.getIDString().contains(Integer.toString(id))) {
                 return planet;
             }
-
         }
         return null;
     }
 
+    /**
+     * Searches for a moon that orbits a given planet based on its ID and name.
+     *
+     * @param planet The planet around which the moon orbits.
+     * @param id     The ID of the moon to search for.
+     * @param name   The name of the moon to search for.
+     * @return The {@code Moon} object if found, otherwise {@code null}.
+     */
     public static Moon searchMoonByPlanet(Planet planet, Integer id, String name) {
         ArrayList<Moon> moons = planet.getMoons();
         if (moons.isEmpty()) return null;
 
-        for(Moon moon : moons) {
+        for (Moon moon : moons) {
             if (moon.getName().contains(name) && moon.getIDString().contains(Integer.toString(id))) {
                 return moon;
             }
@@ -34,21 +56,33 @@ public abstract class Search {
         return null;
     }
 
+    /**
+     * Searches for a moon in the orbiting system based on its ID and name.
+     *
+     * @param id   The ID of the moon to search for.
+     * @param name The name of the moon to search for.
+     * @return The {@code Moon} object if found, otherwise {@code null}.
+     */
     public static Moon searchMoon(Integer id, String name) {
         ArrayList<Moon> moons = OrbitingSystem.getMoons();
         if (moons.isEmpty()) return null;
 
-        for(Moon moon : moons) {
+        for (Moon moon : moons) {
             if (moon.getName().contains(name) && moon.getIDString().contains(Integer.toString(id))) {
                 return moon;
             }
         }
         return null;
     }
+    /**
+     * Searches for a celestial body (planet or moon) in the orbiting system based on user input.
+     * The user is prompted to enter an ID and a name to find either a planet or a moon.
+     *
+     * @return The found celestial body ({@code Planet} or {@code Moon}), or {@code null} if no match is found.
+     */
 
-    /*
     public static CorpoCeleste justSearch() {
-        ArrayList<Planet> planets = OrbitingSystem.getInstancePlanets();
+        ArrayList<Planet> planets = OrbitingSystem.getPlanets();
         ArrayList<Moon> moons = OrbitingSystem.getMoons();
         Planet planetToSearch = null;
         Moon moonToSearch = null;
@@ -78,5 +112,4 @@ public abstract class Search {
             } else return moonToSearch;
         }
     }
-     */
 }
