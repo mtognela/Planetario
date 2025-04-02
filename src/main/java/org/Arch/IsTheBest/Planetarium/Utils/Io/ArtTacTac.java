@@ -88,5 +88,7 @@ public abstract class ArtTacTac {
     public static final String ERROR_PLANET_NOT_OWN_NO_MOON = PrettyStrings.
             prettify("The Planet has no moons.", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String CMD = PrettyStrings.
-            prettify("cmd %s\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);;
+            prettify("cmd %s\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+    public static final String DO_YOU_WANT_TO_SEARCH_AGAIN = "Do you want to search again?";
+    public static final String NO_PLANET_FOUND = "No planet found";
 }
