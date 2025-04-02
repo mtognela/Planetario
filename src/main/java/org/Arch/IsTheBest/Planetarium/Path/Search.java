@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Path;
+package org.Arch.IsTheBest.Planetarium.Path;
 
 import com.kibo.pgar.lib.InputData;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.CorpoCeleste;

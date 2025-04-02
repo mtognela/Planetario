@@ -3,116 +3,116 @@ package org.Arch.IsTheBest.Planetarium.Utils.Collision;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
- * Abstract class that handles collision detection between celestial bodies in the planetary system.
+ * Utility class that handles collision detection between celestial bodies in the planetary system.
+ * Uses Hashset to avoid duplicate removal entries and follows Java naming conventions.
  */
 public abstract class Collision {
-
     /**
      * Checks for collisions between planets and moons and removes those that have collided.
+     * Uses Sets to ensure each body is only removed once.
      */
     public static void checkCollisions() {
-        ArrayList<Planet> planets = OrbitingSystem.getPlanets();
-        ArrayList<Moon> moons = OrbitingSystem.getMoons();
+        List<Planet> planets = OrbitingSystem.getPlanets();
+        List<Moon> moons = OrbitingSystem.getMoons();
 
-        ArrayList<Moon> removeMoons = new ArrayList<>();
-        ArrayList<Planet> removePlanets = new ArrayList<>();
+        HashSet<Planet> planetsToRemove = new HashSet<>();
+        HashSet<Moon> moonsToRemove = new HashSet<>();
 
-        extractedPlanet(planets, removePlanets);
-        extractedMoon(moons, removeMoons);
-        extractedMix(planets, moons, removePlanets, removeMoons);
+        checkPlanetCollisions(planets, planetsToRemove);
+        checkMoonCollisions(moons, moonsToRemove);
+        checkPlanetMoonCollisions(planets, moons, planetsToRemove, moonsToRemove);
 
-        for (Moon removeMoon : removeMoons) {
-            OrbitingSystem.removeMoon(removeMoon);
-        }
-        for (Planet removePlanet : removePlanets) {
-            OrbitingSystem.removePlanet(removePlanet);
+        moonsToRemove.forEach(OrbitingSystem::removeMoon);
+        planetsToRemove.forEach(OrbitingSystem::removePlanet);
+    }
+
+    /**
+     * Checks for collisions between planets.
+     * @param planets List of planets to check
+     * @param planetsToRemove Set to collect collided planets
+     */
+    private static void checkPlanetCollisions(List<Planet> planets, Set<Planet> planetsToRemove) {
+        for (int i = 0; i < planets.size(); i++) {
+            for (int j = i + 1; j < planets.size(); j++) {
+                Planet p1 = planets.get(i);
+                Planet p2 = planets.get(j);
+                if (detectCollision(p1, p2)) {
+                    planetsToRemove.add(p1);
+                    planetsToRemove.add(p2);
+                }
+            }
         }
     }
 
     /**
-     * Checks for collisions between planets and moons and marks them for removal if they collide.
-     *
-     * @param planets List of planets.
-     * @param moons List of moons.
-     * @param removePlanets List of planets to be removed.
-     * @param removeMoons List of moons to be removed.
+     * Checks for collisions between moons.
+     * @param moons List of moons to check
+     * @param moonsToRemove Set to collect collided moons
      */
-    private static void extractedMix(ArrayList<Planet> planets, ArrayList<Moon> moons, ArrayList<Planet> removePlanets, ArrayList<Moon> removeMoons) {
+    private static void checkMoonCollisions(List<Moon> moons, Set<Moon> moonsToRemove) {
+        for (int i = 0; i < moons.size(); i++) {
+            for (int j = i + 1; j < moons.size(); j++) {
+                Moon m1 = moons.get(i);
+                Moon m2 = moons.get(j);
+                if (detectCollision(m1, m2)) {
+                    moonsToRemove.add(m1);
+                    moonsToRemove.add(m2);
+                }
+            }
+        }
+    }
+
+    /**
+     * Checks for collisions between planets and moons.
+     * @param planets List of planets
+     * @param moons List of moons
+     * @param planetsToRemove Set to collect collided planets
+     * @param moonsToRemove Set to collect collided moons
+     */
+    private static void checkPlanetMoonCollisions(List<Planet> planets, List<Moon> moons,
+                                                  Set<Planet> planetsToRemove, Set<Moon> moonsToRemove) {
         for (Planet planet : planets) {
             for (Moon moon : moons) {
-                if (!detectCollision(planet, moon)) {
-                    removePlanets.add(planet);
-                    removeMoons.add(moon);
+                if (detectCollision(planet, moon)) {
+                    // Only remove moon by default (modify if planet should also be removed)
+                    moonsToRemove.add(moon);
                 }
             }
         }
     }
 
     /**
-     * Checks for collisions between planets and marks them for removal if they collide.
-     *
-     * @param planets List of planets.
-     * @param removePlanets List of planets to be removed.
+     * Detects collision between two planets based on distance and radii.
+     * @param p1 First planet
+     * @param p2 Second planet
+     * @return True if collision detected
      */
-    private static void extractedPlanet(ArrayList<Planet> planets, ArrayList<Planet> removePlanets) {
-        for(int i = 0; i < planets.size(); i++)
-            for (int j = i + 1; j < planets.size(); j++) {
-                if (!detectCollision(planets.get(i), planets.get(j))) {
-                    removePlanets.add(planets.get(i));
-                    removePlanets.add(planets.get(j));
-                }
-            }
+    public static boolean detectCollision(Planet p1, Planet p2) {
+        return p1.distanceFrom(p2.getCoordinate()) <= (p1.getRadius() + p2.getRadius());
     }
 
     /**
-     * Checks for collisions between moons and marks them for removal if they collide.
-     *
-     * @param moons List of moons.
-     * @param removeMoons List of moons to be removed.
+     * Detects collision between two moons based on distance and radii.
+     * @param m1 First moon
+     * @param m2 Second moon
+     * @return True if collision detected
      */
-    private static void extractedMoon(ArrayList<Moon> moons, ArrayList<Moon> removeMoons) {
-        for (int k = 0; k < moons.size(); k++)
-            for (int l = k + 1; l < moons.size(); l++) {
-                if (!detectCollision(moons.get(k), moons.get(l))) {
-                    removeMoons.add(moons.get(k));
-                    removeMoons.add(moons.get(l));
-                }
-            }
+    public static boolean detectCollision(Moon m1, Moon m2) {
+        return m1.distanceFrom(m2.getCoordinate()) <= (m1.getRadius() + m2.getRadius());
     }
 
     /**
-     * Detects collision between two planets.
-     *
-     * @param p1 First planet.
-     * @param p2 Second planet.
-     * @return True if the planets collide, false otherwise.
+     * Detects collision between a planet and a moon based on distance and radii.
+     * @param p Planet
+     * @param m Moon
+     * @return True if collision detected
      */
-    private static boolean detectCollision(Planet p1, Planet p2) {
-        return p1.distanceFrom(p2.getCoordinate()) <= (p1.getRADIUS() + p2.getRADIUS());
-    }
-
-    /**
-     * Detects collision between two moons.
-     *
-     * @param m1 First moon.
-     * @param m2 Second moon.
-     * @return True if the moons collide, false otherwise.
-     */
-    private static boolean detectCollision(Moon m1, Moon m2) {
-        return m1.distanceFrom(m2.getCoordinate()) <= (m1.getRADIUS() + m2.getRADIUS());
-    }
-
-    /**
-     * Detects collision between a planet and a moon.
-     *
-     * @param p Planet.
-     * @param m Moon.
-     * @return True if the planet and moon collide, false otherwise.
-     */
-    private static boolean detectCollision(Planet p, Moon m) {
-        return p.distanceFrom(m.getCoordinate()) <= (p.getRADIUS() + m.getRADIUS());
+    public static boolean detectCollision(Planet p, Moon m) {
+        return p.distanceFrom(m.getCoordinate()) <= (p.getRadius() + m.getRadius());
     }
 }

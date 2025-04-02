@@ -4,9 +4,12 @@ import com.kibo.pgar.lib.InputData;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
-import org.Arch.IsTheBest.Planetarium.Utils.Path.Search;
+import org.Arch.IsTheBest.Planetarium.Path.Search;
+
+import static org.Arch.IsTheBest.Planetarium.Path.Route.buildPathFromTo;
+import static org.Arch.IsTheBest.Planetarium.Path.Route.fromTo;
 import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
-import static org.Arch.IsTheBest.Planetarium.Utils.Path.Route.*;
+
 import java.util.ArrayList;
 
 /**

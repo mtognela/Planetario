@@ -120,8 +120,8 @@ public abstract class CorpoCeleste {
      *
      * @return The radial distance
      */
-    public double getRADIUS() {
-        return coordinate.getRADIUS();
+    public double getRadius() {
+        return coordinate.getRadius();
     }
 
     /**
@@ -129,8 +129,8 @@ public abstract class CorpoCeleste {
      *
      * @return The angular position in radians
      */
-    public double getTHETA() {
-        return coordinate.getTHETA();
+    public double getTheta() {
+        return coordinate.getRadius();
     }
 
     /**

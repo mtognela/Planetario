@@ -1,7 +1,5 @@
 package org.Arch.IsTheBest.Planetarium.Data;
 
-import com.kibo.pgar.lib.AnsiColors;
-import com.kibo.pgar.lib.PrettyStrings;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 
 /**
@@ -62,7 +60,7 @@ public class Coordinate {
      *
      * @return The radial distance from origin
      */
-    public double getRADIUS() {
+    public double getRadius() {
         return RADIUS;
     }
 
@@ -71,7 +69,7 @@ public class Coordinate {
      *
      * @return The angular position in degrees
      */
-    public double getTHETA() {
+    public double getTheta() {
         return THETA;
     }
 
@@ -103,8 +101,8 @@ public class Coordinate {
      * @return New Coordinate in absolute terms
      */
     public static Coordinate convertToAbsolute(Coordinate relativeCoordinate, Planet pianetaRif) {
-        double xAbs = pianetaRif.getX() + relativeCoordinate.getRADIUS() * Math.cos(relativeCoordinate.getTHETA());
-        double yAbs = pianetaRif.getY() + relativeCoordinate.getRADIUS() * Math.sin(relativeCoordinate.getTHETA());
+        double xAbs = pianetaRif.getX() + relativeCoordinate.getRadius() * Math.cos(relativeCoordinate.getRadius());
+        double yAbs = pianetaRif.getY() + relativeCoordinate.getRadius() * Math.sin(relativeCoordinate.getRadius());
 
         return new Coordinate(Math.sqrt(Math.pow(xAbs, 2) + Math.pow(yAbs, 2)), Math.atan2(yAbs, xAbs));
     }

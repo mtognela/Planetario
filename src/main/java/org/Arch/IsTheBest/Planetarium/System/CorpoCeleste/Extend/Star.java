@@ -40,6 +40,8 @@ public class Star extends CorpoCeleste {
      * @throws IllegalStateException if the instance hasn't been created
      */
     public static Star getInstance() {
+        if (instance == null)
+            throw new IllegalStateException("Star instance has not been created. Call createInstance first.");
         return instance;
     }
 
@@ -49,6 +51,8 @@ public class Star extends CorpoCeleste {
      * @return Formatted string representation of the star
      */
     public static String getInstanceToString() {
+        if (instance == null)
+            throw new IllegalStateException("Star instance has not been created. Call createInstance first.");
         return instance.toString();
     }
 
@@ -58,6 +62,8 @@ public class Star extends CorpoCeleste {
      * @return The name of the star
      */
     public static String getInstanceName() {
+        if (instance == null)
+            throw new IllegalStateException("Star instance has not been created. Call createInstance first.");
         return instance.getName();
     }
 
@@ -67,6 +73,8 @@ public class Star extends CorpoCeleste {
      * @return The mass of the star
      */
     public static double getInstanceMass() {
+        if (instance == null)
+            throw new IllegalStateException("Star instance has not been created. Call createInstance first.");
         return instance.getMass();
     }
 
@@ -77,6 +85,8 @@ public class Star extends CorpoCeleste {
      */
     @Override
     public String toString() {
+        if (instance == null)
+            throw new IllegalStateException("Star instance has not been created. Call createInstance first.");
         return PrettyStrings.prettify("Star: " + super.toString(), AnsiColors.RED, null, null);
     }
 }

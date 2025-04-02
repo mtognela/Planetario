@@ -5,7 +5,7 @@ import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Moon;
 import org.Arch.IsTheBest.Planetarium.System.CorpoCeleste.Extend.Planet;
 import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
-import org.Arch.IsTheBest.Planetarium.Utils.Path.Search;
+import org.Arch.IsTheBest.Planetarium.Path.Search;
 
 import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
 
