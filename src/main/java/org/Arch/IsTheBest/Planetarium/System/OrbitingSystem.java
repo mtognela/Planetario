@@ -113,6 +113,16 @@ public class OrbitingSystem {
     }
 
     /**
+     * Adds a moon to a specified planet in the system.
+     *
+     * @param moon the moon itself to add
+     */
+    public static void addMoon(Moon moon) {
+        moon.getPianetaRif().addMoon(moon);
+        Collision.checkCollisions();
+    }
+
+    /**
      * Removes a moon from its parent planet.
      *
      * @param moon The moon to be removed

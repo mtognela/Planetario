@@ -16,31 +16,37 @@ import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
  */
 public abstract class JustKidding {
 
+
     /**
      * Adds a new planet to the orbiting system.
      */
     protected static void addPlanet() {
         System.out.println(PLANET_ADD);
 
-        String planetName = setupPlanet();
+        Planet planet = setupPlanet();
 
-        System.out.printf(ADD_PLANET_PRINT, planetName);
+        System.out.printf(ADD_PLANET_PRINT, planet.getName(),  planet.getID());
     }
 
     /**
      * Sets up a new planet with user input data.
      *
-     * @return The name of the newly added planet.
+     * @return The new planet itself.
      */
-    private static String setupPlanet() {
-        String planetName = InputData.readStringNotEmpty(PLANET_NAME, false);
-        double mass = InputData.readDoubleWithMinimum(PLANET_MASS, 0);
+    private static Planet setupPlanet() {
+        Planet planet;
 
-        double radius = InputData.readDoubleWithMinimum(DISTANCE_SUN_RADIUS, 0);
+        String planetName = InputData.readStringNotEmpty(PLANET_NAME, false);
+        double mass = InputData.readDoubleWithMinimum(PLANET_MASS, 0.1);
+
+        double radius = InputData.readDoubleWithMinimum(DISTANCE_SUN_RADIUS, 0.1);
         double theta = InputData.readDouble(THETA_IN_RADIUS);
 
-        OrbitingSystem.addPlanet(mass, radius, theta, planetName);
-        return planetName;
+        planet = new Planet(mass, new Coordinate(radius, theta), planetName);
+
+        OrbitingSystem.addPlanet(planet);
+
+        return planet;
     }
 
     /**
@@ -49,15 +55,20 @@ public abstract class JustKidding {
      * @param planet The planet around which the moon orbits.
      * @return The name of the newly added moon.
      */
-    private static String setupMoon(Planet planet) {
+    private static Moon setupMoon(Planet planet) {
+        Moon moon;
+
         String moonName = InputData.readStringNotEmpty(MOON_NAME, false);
         double mass = InputData.readDoubleWithMinimum(MOON_MASS, 0);
 
         double radius = InputData.readDoubleWithMinimum(DISTANCE_FROM_PLANET, 0);
         double theta = InputData.readDouble(THETA_IN_RADIUS);
 
-        OrbitingSystem.addMoon(mass, radius, theta, moonName, planet);
-        return moonName;
+        moon = new Moon(mass, new Coordinate(radius, theta), moonName, planet);
+
+        OrbitingSystem.addMoon(moon);
+
+        return moon;
     }
 
     /**
@@ -65,13 +76,14 @@ public abstract class JustKidding {
      */
     protected static void addMoon() {
         Planet planet = null;
+        Moon moon;
 
         planet = getPlanet();
         if (planet == null) return;
 
-        String moonName = setupMoon(planet);
+        moon = setupMoon(planet);
 
-        System.out.println("Luna " + moonName + " aggiunta con successo a " + planet.getName() + "!");
+        System.out.printf(ADDING_A_MOON_WITH_NAME_S_ID_D_TO_THE_PLANET_S_AND_D, moon.getName(), moon.getID(), planet.getName(), moon.getID());
     }
 
     /**

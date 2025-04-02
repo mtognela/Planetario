@@ -60,7 +60,7 @@ public abstract class ArtTacTac {
     public static final String THETA_IN_RADIUS = PrettyStrings.
             prettify("Theta angle (in degrees): ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String ADD_PLANET_PRINT = PrettyStrings.
-            prettify("Planet %s added successfully!\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
+            prettify("Planet Name %s id = %d added successfully!\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String MOON_ADD = PrettyStrings.
             prettify("Adding a moon...", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String ERROR_INIT_PANET_FIRST = PrettyStrings.
@@ -91,4 +91,5 @@ public abstract class ArtTacTac {
             prettify("cmd %s\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String DO_YOU_WANT_TO_SEARCH_AGAIN = "Do you want to search again?";
     public static final String NO_PLANET_FOUND = "No planet found";
+    public static final String ADDING_A_MOON_WITH_NAME_S_ID_D_TO_THE_PLANET_S_AND_D = "Adding a moon with name %s id = %d to the planet %s and %d\n";
 }
