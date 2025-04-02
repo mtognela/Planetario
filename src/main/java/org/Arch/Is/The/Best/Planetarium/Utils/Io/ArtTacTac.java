@@ -1,4 +1,4 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io;
+package org.Arch.Is.The.Best.Planetarium.Utils.Io;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.AnsiWeights;

@@ -1,10 +1,10 @@
-package org.Arch.IsTheBest.Planetarium.Path;
+package org.Arch.Is.The.Best.Planetarium.Path;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Planet;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Star;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Moon;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Planet;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Star;
 
 /**
  * The {@code Route} class provides utility methods to calculate distances and generate

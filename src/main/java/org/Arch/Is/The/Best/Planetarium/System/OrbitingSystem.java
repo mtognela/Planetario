@@ -1,8 +1,11 @@
-package org.Arch.IsTheBest.Planetarium.System;
+package org.Arch.Is.The.Best.Planetarium.System;
 
-import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
+import org.Arch.Is.The.Best.Planetarium.Data.Coordinate;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Moon;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Planet;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Star;
 import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.*;
-import org.Arch.IsTheBest.Planetarium.Utils.Collision.Collision;
+import org.Arch.Is.The.Best.Planetarium.Utils.Collision.Collision;
 
 import java.util.ArrayList;
 import java.util.HashSet;

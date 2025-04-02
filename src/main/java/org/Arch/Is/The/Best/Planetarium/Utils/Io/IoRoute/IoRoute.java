@@ -1,8 +1,8 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io.IoRoute;
+package org.Arch.Is.The.Best.Planetarium.Utils.Io.IoRoute;
 
 import com.kibo.pgar.lib.*;
 
-import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
+import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.*;
 
 public abstract class IoRoute {
         public static void showMenu() {

@@ -1,8 +1,8 @@
-package org.Arch.IsTheBest.Planetarium;
+package org.Arch.Is.The.Best.Planetarium;
 
-import org.Arch.IsTheBest.Planetarium.Utils.Io.IoMain.IoMain;
+import org.Arch.Is.The.Best.Planetarium.Utils.Io.IoMain.IoMain;
 
-import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
+import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.*;
 
 public abstract class Main {
     public static void main(String[] args) {

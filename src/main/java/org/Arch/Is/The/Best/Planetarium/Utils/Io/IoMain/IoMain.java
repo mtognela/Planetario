@@ -1,11 +1,11 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io.IoMain;
+package org.Arch.Is.The.Best.Planetarium.Utils.Io.IoMain;
 
 import com.kibo.pgar.lib.*;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Star;
-import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
-import org.Arch.IsTheBest.Planetarium.Utils.Io.IoRoute.IoRoute;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Star;
+import org.Arch.Is.The.Best.Planetarium.System.OrbitingSystem;
+import org.Arch.Is.The.Best.Planetarium.Utils.Io.IoRoute.IoRoute;
 
-import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
+import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.*;
 
 public abstract class IoMain {
     public static void setUpSystem() {

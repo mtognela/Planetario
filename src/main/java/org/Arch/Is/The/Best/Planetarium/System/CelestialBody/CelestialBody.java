@@ -1,6 +1,6 @@
-package org.Arch.IsTheBest.Planetarium.System.CelestialBody;
+package org.Arch.Is.The.Best.Planetarium.System.CelestialBody;
 
-import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
+import org.Arch.Is.The.Best.Planetarium.Data.Coordinate;
 
 import java.util.Objects;
 

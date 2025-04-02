@@ -1,14 +1,14 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io.IoRoute;
+package org.Arch.Is.The.Best.Planetarium.Utils.Io.IoRoute;
 
 import com.kibo.pgar.lib.InputData;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Planet;
-import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
-import org.Arch.IsTheBest.Planetarium.Path.Search;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Moon;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Planet;
+import org.Arch.Is.The.Best.Planetarium.System.OrbitingSystem;
+import org.Arch.Is.The.Best.Planetarium.Path.Search;
 
-import static org.Arch.IsTheBest.Planetarium.Path.Route.buildPathFromTo;
-import static org.Arch.IsTheBest.Planetarium.Path.Route.fromTo;
-import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
+import static org.Arch.Is.The.Best.Planetarium.Path.Route.buildPathFromTo;
+import static org.Arch.Is.The.Best.Planetarium.Path.Route.fromTo;
+import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.*;
 
 import java.util.ArrayList;
 

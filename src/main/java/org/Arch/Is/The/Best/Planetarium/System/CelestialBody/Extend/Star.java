@@ -1,9 +1,9 @@
-package org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend;
+package org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend;
 
 import com.kibo.pgar.lib.AnsiColors;
 import com.kibo.pgar.lib.PrettyStrings;
-import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.CelestialBody;
+import org.Arch.Is.The.Best.Planetarium.Data.Coordinate;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.CelestialBody;
 
 /**
  * Represents a star celestial body that serves as the center of a planetary system.

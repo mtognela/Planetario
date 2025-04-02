@@ -1,15 +1,15 @@
-package org.Arch.IsTheBest.Planetarium.Path;
+package org.Arch.Is.The.Best.Planetarium.Path;
 
 import com.kibo.pgar.lib.InputData;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.CelestialBody;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Planet;
-import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.CelestialBody;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Moon;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Planet;
+import org.Arch.Is.The.Best.Planetarium.System.OrbitingSystem;
 
 import java.util.ArrayList;
 
-import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.DO_YOU_WANT_TO_SEARCH_AGAIN;
-import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.NO_PLANET_FOUND;
+import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.DO_YOU_WANT_TO_SEARCH_AGAIN;
+import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.NO_PLANET_FOUND;
 
 /**
  * The {@code Search} class provides utility methods to search for planets and moons within the orbiting system.

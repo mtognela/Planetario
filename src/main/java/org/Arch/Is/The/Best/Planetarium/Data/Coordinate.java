@@ -1,6 +1,6 @@
-package org.Arch.IsTheBest.Planetarium.Data;
+package org.Arch.Is.The.Best.Planetarium.Data;
 
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Planet;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Planet;
 
 /**
  * Represents a coordinate in both Cartesian (X,Y) and polar (radius,theta) coordinate systems.

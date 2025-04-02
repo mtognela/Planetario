@@ -1,7 +1,7 @@
-package org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend;
+package org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend;
 
-import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.CelestialBody;
+import org.Arch.Is.The.Best.Planetarium.Data.Coordinate;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.CelestialBody;
 
 /**
  * Represents a moon celestial body that orbits around a planet.

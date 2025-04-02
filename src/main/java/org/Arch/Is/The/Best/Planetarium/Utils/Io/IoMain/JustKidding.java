@@ -1,13 +1,13 @@
-package org.Arch.IsTheBest.Planetarium.Utils.Io.IoMain;
+package org.Arch.Is.The.Best.Planetarium.Utils.Io.IoMain;
 
 import com.kibo.pgar.lib.InputData;
-import org.Arch.IsTheBest.Planetarium.Data.Coordinate;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Moon;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.Planet;
-import org.Arch.IsTheBest.Planetarium.System.OrbitingSystem;
-import org.Arch.IsTheBest.Planetarium.Path.Search;
+import org.Arch.Is.The.Best.Planetarium.Data.Coordinate;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Moon;
+import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Planet;
+import org.Arch.Is.The.Best.Planetarium.System.OrbitingSystem;
+import org.Arch.Is.The.Best.Planetarium.Path.Search;
 
-import static org.Arch.IsTheBest.Planetarium.Utils.Io.ArtTacTac.*;
+import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.*;
 
 /**
  * Utility class for managing planetary and lunar systems.
