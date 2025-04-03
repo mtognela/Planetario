@@ -6,7 +6,7 @@ import static org.Arch.Is.The.Best.Planetarium.Utils.Io.ArtTacTac.*;
 
 public abstract class IoRoute {
         public static void showMenu() {
-        Menu menu = new Menu(MENU_ROUTE_TITLE, MENU_ROUTE_OPTIONS, true, false, false);
+        Menu menu = new Menu(MENU_ROUTE_TITLE, MENU_ROUTE_OPTIONS, true);
 
         int choice;
 

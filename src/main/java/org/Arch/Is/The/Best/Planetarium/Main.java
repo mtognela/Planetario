@@ -10,6 +10,6 @@ public abstract class Main {
 
         IoMain.setUpSystem();
 
-        System.out.println(LOTLOTSNEWLINES);
+        System.out.println("\n");
     }
 }

@@ -27,7 +27,7 @@ public abstract class IoMain {
     }
 
     private static void showMenu() {
-        Menu menu = new Menu(MENU_MAIN_TITLE, MENU_MAIN_OPTIONS, true, false, false);
+        Menu menu = new Menu(MENU_MAIN_TITLE, MENU_MAIN_OPTIONS, true);
 
         int choice;
 

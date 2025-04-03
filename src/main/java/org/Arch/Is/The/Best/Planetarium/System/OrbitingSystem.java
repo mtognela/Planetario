@@ -4,7 +4,6 @@ import org.Arch.Is.The.Best.Planetarium.Data.Coordinate;
 import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Moon;
 import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Planet;
 import org.Arch.Is.The.Best.Planetarium.System.CelestialBody.Extend.Star;
-import org.Arch.IsTheBest.Planetarium.System.CelestialBody.Extend.*;
 import org.Arch.Is.The.Best.Planetarium.Utils.Collision.Collision;
 
 import java.util.ArrayList;
