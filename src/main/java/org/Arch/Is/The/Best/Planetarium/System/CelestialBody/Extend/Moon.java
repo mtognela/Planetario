@@ -55,7 +55,7 @@ public class Moon extends CelestialBody {
      * @return Formatted string with moon details
      */
     public String toString() {
-        return "\tMoon: " + super.toString();
+        return String.format("\tMoon %s %s", super.toString(), path);
     }
 
     /**

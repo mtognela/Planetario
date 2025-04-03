@@ -42,8 +42,8 @@ public abstract class Collision {
                 Planet p1 = planets.get(i);
                 Planet p2 = planets.get(j);
 
-                if (crashStar(p1)) planetsToRemove.add(p1);
-                if (crashStar(p2)) planetsToRemove.add(p2);
+                if (!crashStar(p1)) planetsToRemove.add(p1);
+                if (!crashStar(p2)) planetsToRemove.add(p2);
 
                 if (detectCollision(p1, p2)) {
                     planetsToRemove.add(p1);
@@ -64,8 +64,8 @@ public abstract class Collision {
                 Moon m1 = moons.get(i);
                 Moon m2 = moons.get(j);
 
-                if (crashStar(m1)) moonsToRemove.add(m1);
-                if (crashStar(m2)) moonsToRemove.add(m2);
+                if (!crashStar(m1)) moonsToRemove.add(m1);
+                if (!crashStar(m2)) moonsToRemove.add(m2);
 
                 if (detectCollision(m1, m2)) {
                     moonsToRemove.add(m1);
@@ -87,8 +87,8 @@ public abstract class Collision {
         for (Planet planet : planets) {
             for (Moon moon : moons) {
 
-                if (crashStar(planet)) planetsToRemove.add(planet);
-                if (crashStar(moon)) moonsToRemove.add(moon);
+                if (!crashStar(planet)) planetsToRemove.add(planet);
+                if (!crashStar(moon)) moonsToRemove.add(moon);
 
                 if (detectCollision(planet, moon)) {
                     moonsToRemove.add(moon);
