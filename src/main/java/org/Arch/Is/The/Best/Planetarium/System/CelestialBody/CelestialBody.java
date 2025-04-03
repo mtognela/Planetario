@@ -155,6 +155,6 @@ public abstract class CelestialBody {
     }
     @Override
     public int  hashCode() {
-        return Objects.hash(MASS, NAME, COORDINATE);
+        return Math.abs(Objects.hash(MASS, NAME, COORDINATE));
     }
 }
