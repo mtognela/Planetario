@@ -6,7 +6,7 @@ import com.kibo.pgar.lib.PrettyStrings;
 
 public abstract class ArtTacTac {
     public static final String YES_OR_NO = PrettyStrings.
-            prettify("Is it okay?", AnsiColors.BLACK_BACKGROUND, null, null);
+            prettify("Is it okay?", AnsiColors.BLUE, null, null);
     public static final String GREETER = PrettyStrings.prettify(
             "Are you ready to create your system?", AnsiColors.CYAN, AnsiWeights.BOLD, null);
     public static final String MESSAGE_NAME_SYSTEM = PrettyStrings.prettify(
@@ -109,7 +109,6 @@ public abstract class ArtTacTac {
     public static final String PLEASE_ENTER_A_PLANET_ID = PrettyStrings.
             prettify("Please enter a Planet ID: ", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
     public static final String STARTING_PLANETARIUM = PrettyStrings.
-            prettify("Starting Planetarium...\n\n\n\n\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
-    public static final String LOTLOTSNEWLINES = "\n\n\n\n\n";
+            prettify("Starting Planetarium...\n\n", AnsiColors.CYAN, AnsiWeights.ITALIC, null);
 
 }
